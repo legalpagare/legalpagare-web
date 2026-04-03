@@ -1,6 +1,1736 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"/>
-<title>LegalPagaré — Próximamente</title>
-</head><body style="background:#0b0e14;color:#22c55e;font-family:Arial;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-size:24px">
-🚀 LegalPagaré · Próximamente:
-</body></html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="LegalPagaré — Generá series de pagarés legales, rápido, sin errores y con total seguridad. 2FA sin contraseñas. D. Ley 5965/63."/>
+<title>LegalPagaré — Pagarés legales en minutos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════
+   VARIABLES
+══════════════════════════════════════ */
+:root {
+  --bg:       #e8eaed;
+  --bg1:      #f0f2f5;
+  --bg2:      #f8f9fa;
+  --bg3:      #ffffff;
+  --border:   rgba(0,0,0,.08);
+  --border2:  rgba(0,0,0,.14);
+  --text:     #1a1f2e;
+  --text2:    #4a5568;
+  --text3:    #8a97aa;
+  --navy:     #1a2744;
+  --green:    #1a6b3a;
+  --greend:   #145c30;
+  --greenbg:  rgba(26,107,58,.08);
+  --gold:     #b8860b;
+  --goldbg:   rgba(184,134,11,.08);
+  --red:      #c0392b;
+  --redbg:    rgba(192,57,43,.08);
+  --steel:    #607d8b;
+  --display:  'Playfair Display', Georgia, serif;
+  --body:     'DM Sans', system-ui, sans-serif;
+  --mono:     'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(0,0,0,.03) 39px,
+      rgba(0,0,0,.03) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(0,0,0,.03) 39px,
+      rgba(0,0,0,.03) 40px
+    );
+}
+
+/* ══════════════════════════════════════
+   NOISE TEXTURE OVERLAY
+══════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: .4;
+}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5%;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(232,234,237,.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border2);
+  box-shadow: 0 1px 8px rgba(0,0,0,.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #1a5c1a, #2e7d32);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 4px 16px rgba(34,197,94,.25);
+}
+
+.nav-logo-text {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -.3px;
+}
+
+.nav-logo-text span { color: var(--green); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--navy); }
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-nav-login {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text2);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--body);
+}
+.btn-nav-login:hover { color: var(--navy); border-color: var(--navy); }
+
+.btn-nav-start {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--navy);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--body);
+  box-shadow: 0 4px 16px rgba(26,39,68,.2);
+}
+.btn-nav-start:hover { background: #243a6e; transform: translateY(-1px); }
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial glow background */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(26,39,68,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 780px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp .8s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,39,68,.07);
+  border: 1px solid rgba(26,39,68,.18);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 28px;
+  font-family: var(--mono);
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--navy);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50%      { opacity: .3; }
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--navy);
+  position: relative;
+}
+
+.hero h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), transparent);
+  border-radius: 2px;
+}
+
+.hero-sub {
+  font-size: 19px;
+  color: var(--text2);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  border-radius: 10px;
+  border: none;
+  background: var(--navy);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--body);
+  box-shadow: 0 8px 32px rgba(26,39,68,.25);
+}
+.btn-primary:hover { background: #243a6e; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(26,39,68,.35); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+  background: white;
+  color: var(--text2);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--body);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.btn-secondary:hover { color: var(--navy); border-color: var(--navy); background: white; }
+
+.hero-free-note {
+  font-size: 13px;
+  color: var(--text3);
+  font-family: var(--mono);
+}
+
+.hero-free-note strong { color: var(--greend); font-weight: 700; }
+
+/* App preview mockup */
+.hero-mockup {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  animation: fadeUp .8s .3s ease both;
+}
+
+.mockup-browser {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.06);
+}
+
+.mockup-bar {
+  background: var(--bg1);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mockup-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.mockup-dots span {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.mockup-dots span:nth-child(1) { background: #ff5f57; }
+.mockup-dots span:nth-child(2) { background: #febc2e; }
+.mockup-dots span:nth-child(3) { background: #28c840; }
+
+.mockup-url {
+  flex: 1;
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--text3);
+  font-family: var(--mono);
+  text-align: center;
+}
+
+.mockup-screen {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+  min-height: 300px;
+}
+
+.mockup-sidebar {
+  background: var(--bg1);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 14px;
+}
+
+.ms-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ms-icon {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg,#1a5c1a,#2e7d32);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+
+.ms-name { font-size: 11px; font-weight: 700; color: var(--text); }
+.ms-sub  { font-size: 9px; color: var(--text3); }
+
+.ms-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  border-radius: 7px;
+  font-size: 11px;
+  color: var(--text3);
+  margin-bottom: 2px;
+}
+
+.ms-nav-item.active {
+  background: var(--greenbg);
+  color: var(--green);
+  border: 1px solid rgba(34,197,94,.15);
+}
+
+.mockup-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mm-topbar {
+  background: var(--bg1);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.mm-card {
+  background: var(--bg1);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 14px;
+  flex: 1;
+}
+
+.mm-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.mm-field {
+  flex: 1;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  height: 28px;
+}
+
+.mm-field.green { border-color: rgba(34,197,94,.3); background: rgba(34,197,94,.05); }
+
+.mm-badge-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.mm-badge {
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: var(--mono);
+}
+.mm-badge.green { background: rgba(26,107,58,.1); color: var(--greend); border: 1px solid rgba(26,107,58,.2); }
+.mm-badge.gold  { background: var(--goldbg);  color: var(--gold);  border: 1px solid rgba(184,134,11,.2); }
+
+/* ══════════════════════════════════════
+   SECTIONS COMMON
+══════════════════════════════════════ */
+section { padding: 100px 5%; position: relative; z-index: 1; }
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--steel);
+  font-family: var(--mono);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 17px;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  margin: 0 5%;
+}
+
+/* ══════════════════════════════════════
+   SAFETY FIRST
+══════════════════════════════════════ */
+.safety {
+  background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg1) 100%);
+}
+
+.safety-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.safety-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.safety-header .section-sub {
+  margin: 0 auto;
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .safety-grid { grid-template-columns: 1fr; }
+}
+
+.safety-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s;
+}
+
+.safety-card:hover {
+  border-color: rgba(26,39,68,.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(26,39,68,.08);
+}
+
+.safety-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.safety-card:hover::before { opacity: 1; }
+
+.safety-icon {
+  font-size: 36px;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.safety-card h3 {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.safety-card p {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.safety-card .safety-tag {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--navy);
+  background: rgba(26,39,68,.07);
+  border: 1px solid rgba(26,39,68,.15);
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════
+   CÓMO FUNCIONA
+══════════════════════════════════════ */
+.how {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.how-header .section-sub { margin: 0 auto; }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 16%;
+  right: 16%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--navy), rgba(26,39,68,.2), var(--navy));
+}
+
+@media (max-width: 700px) {
+  .steps { grid-template-columns: 1fr; }
+  .steps::before { display: none; }
+}
+
+.step {
+  text-align: center;
+  padding: 0 24px;
+}
+
+.step-num {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--navy);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(26,39,68,.12);
+}
+
+.step h3 {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════
+   FEATURES
+══════════════════════════════════════ */
+.features-section {
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,.04);
+}
+
+.features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .features-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--greenbg);
+  border: 1px solid rgba(34,197,94,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.feature-text h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+
+.feature-text p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Pagaré visual */
+.pagare-preview {
+  background: #f6fdf4;
+  border: 4px solid #1a5c1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  position: relative;
+}
+
+.pagare-preview::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid #388e3c;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+.pg-deco-bar {
+  background: #2e7d32;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pg-deco-bar::before {
+  content: '❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧';
+  color: #a5d6a7;
+  font-size: 6px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.pg-content {
+  padding: 12px 14px 10px;
+  font-family: Georgia, serif;
+  color: #111;
+}
+
+.pg-row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid #c5dfc5;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.pg-label {
+  font-size: 7px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #555;
+  font-family: Arial, sans-serif;
+  letter-spacing: .5px;
+}
+
+.pg-val-sm {
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+  color: #111;
+  font-weight: 600;
+  border-bottom: 1px solid #555;
+  padding: 0 3px;
+}
+
+.pg-amount {
+  font-size: 14px;
+  font-weight: 800;
+  font-family: Arial, sans-serif;
+  color: #111;
+}
+
+.pg-line {
+  font-style: italic;
+  font-size: 10px;
+  color: #333;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+.pg-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #c5dfc5;
+  padding-top: 6px;
+}
+
+.pg-footer-col {
+  flex: 1;
+  font-size: 7px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.pg-footer-line {
+  border-bottom: 1px solid #555;
+  height: 10px;
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════
+   TARGET
+══════════════════════════════════════ */
+.target-section {
+  text-align: center;
+}
+
+.target-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.target-header {
+  margin-bottom: 48px;
+}
+
+.target-header .section-sub { margin: 0 auto; }
+
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .target-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.target-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  transition: all .3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.target-card:hover {
+  border-color: rgba(26,39,68,.25);
+  background: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(26,39,68,.1);
+}
+
+.target-emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+.target-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.target-card p {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════
+   PRICING
+══════════════════════════════════════ */
+.pricing-section {
+  background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+}
+
+.pricing-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.toggle-label {
+  font-size: 14px;
+  color: var(--text2);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toggle-label.active { color: var(--text); }
+
+.toggle-switch {
+  width: 52px; height: 28px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: background .2s;
+}
+
+.toggle-switch.annual { background: var(--greend); }
+
+.toggle-knob {
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform .2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+
+.toggle-switch.annual .toggle-knob { transform: translateX(24px); }
+
+.annual-badge {
+  display: inline-flex;
+  background: var(--goldbg);
+  color: var(--gold);
+  border: 1px solid rgba(228,170,34,.2);
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+}
+
+.pricing-card {
+  background: white;
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  padding: 36px 32px;
+  position: relative;
+  transition: transform .3s;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+}
+
+.pricing-card:hover { transform: translateY(-4px); }
+
+.pricing-card.popular {
+  border-color: rgba(26,39,68,.3);
+  background: linear-gradient(180deg, rgba(26,39,68,.04) 0%, white 100%);
+  box-shadow: 0 8px 32px rgba(26,39,68,.12);
+}
+
+.popular-tag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 10px;
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+.plan-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.plan-currency {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text2);
+  font-family: var(--display);
+}
+
+.plan-amount {
+  font-family: var(--display);
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.plan-period {
+  font-size: 14px;
+  color: var(--text3);
+}
+
+.plan-annual-note {
+  font-size: 12px;
+  color: var(--green);
+  font-family: var(--mono);
+  margin-bottom: 24px;
+  min-height: 18px;
+}
+
+.plan-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 24px;
+}
+
+.plan-features {
+  list-style: none;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.plan-features li .check {
+  color: var(--green);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.plan-features li .cross {
+  color: var(--text3);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.plan-features li.disabled { color: var(--text3); }
+
+.btn-plan {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: var(--body);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-plan-std {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+}
+.btn-plan-std:hover { border-color: var(--navy); color: var(--navy); }
+
+.btn-plan-pro {
+  background: var(--navy);
+  border: none;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(26,39,68,.25);
+}
+.btn-plan-pro:hover { background: #243a6e; transform: translateY(-1px); }
+
+/* ══════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════ */
+.cta-section {
+  text-align: center;
+  padding: 120px 5%;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg1) 100%);
+}
+
+.cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-glow {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 32px;
+}
+
+.cta-glow::before {
+  content: '📜';
+  font-size: 64px;
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(34,197,94,.4));
+}
+
+.cta-section h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 16px;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+
+.cta-section p {
+  font-size: 17px;
+  color: var(--text2);
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.cta-note {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text3);
+  font-family: var(--mono);
+}
+
+.cta-note strong { color: var(--green); }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border2);
+  padding: 40px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--bg2);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.footer-logo-icon {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg,#1a5c1a,#2e7d32);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+
+.footer-logo-text {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.footer-logo-text span { color: var(--green); }
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text3);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.footer-links a:hover { color: var(--text2); }
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--text3);
+  font-family: var(--mono);
+}
+
+/* ══════════════════════════════════════
+   SCROLL ANIMATIONS
+══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+</style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">📜</div>
+    <span class="nav-logo-text">Legal<span>Pagaré</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#seguridad">Seguridad</a></li>
+    <li><a href="#como-funciona">Cómo funciona</a></li>
+    <li><a href="#precios">Precios</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="https://app.legalpagare.com" class="btn-nav-login">Ingresar</a>
+    <a href="https://app.legalpagare.com" class="btn-nav-start">Probá gratis</a>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div style="width:100%;max-width:1000px;text-align:center">
+    <div class="hero-content">
+      <div class="hero-badge">D. Ley 5965/63 · Pagarés sin protesto</div>
+      <h1>
+        Imprimí series de pagarés<br>
+        <em>rápido, sin errores</em><br>
+        y con total seguridad
+      </h1>
+      <p class="hero-sub">
+        La herramienta profesional para escribanías, estudios jurídicos e inmobiliarias.
+        Generá lotes hasta 150 pagarés en minutos — con sistema financiero Francés, Alemán y tasa fija incluido.
+      </p>
+      <div class="hero-actions">
+        <a href="https://app.legalpagare.com" class="btn-primary">
+          🚀 Empezá gratis ahora
+        </a>
+        <a href="#como-funciona" class="btn-secondary">
+          Ver cómo funciona →
+        </a>
+      </div>
+      <p class="hero-free-note">
+        <strong>5 créditos gratuitos</strong> · Sin tarjeta de crédito · Sin contraseña
+      </p>
+    </div>
+
+    <!-- Mockup -->
+    <div class="hero-mockup" style="margin-top:48px">
+      <div class="mockup-browser">
+        <div class="mockup-bar">
+          <div class="mockup-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mockup-url">🔒 app.legalpagare.com</div>
+        </div>
+        <div class="mockup-screen">
+          <div class="mockup-sidebar">
+            <div class="ms-brand">
+              <div class="ms-icon">📜</div>
+              <div><div class="ms-name">LegalPagaré</div><div class="ms-sub">D. Ley 5965/63</div></div>
+            </div>
+            <div class="ms-nav-item active">📝 Nueva operación</div>
+            <div class="ms-nav-item">📋 Mis operaciones</div>
+            <div class="ms-nav-item">🖨 Vista previa</div>
+          </div>
+          <div class="mockup-main">
+            <div class="mm-topbar">Nueva operación · Cuotas iguales</div>
+            <div class="mm-card">
+              <div class="mm-row">
+                <div class="mm-field green"></div>
+                <div class="mm-field"></div>
+              </div>
+              <div class="mm-row">
+                <div class="mm-field"></div>
+                <div class="mm-field"></div>
+                <div class="mm-field"></div>
+              </div>
+              <div class="mm-row">
+                <div class="mm-field green"></div>
+              </div>
+              <div class="mm-badge-row">
+                <span class="mm-badge green">✓ 34 pagarés · U$S 98.500</span>
+                <span class="mm-badge gold">● PENDIENTE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ SAFETY FIRST ══════ -->
+<section class="safety" id="seguridad">
+  <div class="safety-inner">
+    <div class="safety-header reveal">
+      <div class="section-tag">🔐 Safety First</div>
+      <h2 class="section-title">Tu seguridad, nuestra prioridad</h2>
+      <p class="section-sub">
+        Diseñado desde cero para operar con total discreción.
+        Sin contraseñas que se filtran, sin pantallas expuestas, sin riesgos.
+      </p>
+    </div>
+    <div class="safety-grid">
+      <div class="safety-card reveal reveal-delay-1">
+        <span class="safety-icon">🔑</span>
+        <h3>Sin contraseñas</h3>
+        <p>Accedés con un código de un solo uso que llega a tu correo. No existe una contraseña que pueda filtrarse, robarse o adivinarse.</p>
+        <span class="safety-tag">2FA · Código de 6 dígitos · Expira en 15 min</span>
+      </div>
+      <div class="safety-card reveal reveal-delay-2">
+        <span class="safety-icon">📧</span>
+        <h3>Tus documentos van a tu correo</h3>
+        <p>El reporte de cada operación se envía directo a tu email. Nada queda expuesto en pantalla, nada queda en el browser de un tercero.</p>
+        <span class="safety-tag">Zero Screen Policy</span>
+      </div>
+      <div class="safety-card reveal reveal-delay-3">
+        <span class="safety-icon">🏦</span>
+        <h3>Infraestructura de nivel empresarial</h3>
+        <p>Sin servidores propios vulnerables. La misma infraestructura que usan las empresas más grandes del mundo. Disponibilidad 99.9%.</p>
+        <span class="safety-tag">Sin servidores propios vulnerables</span>
+      </div>
+      <div class="safety-card reveal reveal-delay-4">
+        <span class="safety-icon">🕵️</span>
+        <h3>Operaciones privadas y discretas</h3>
+        <p>Cada operación es tuya. El sistema no comparte, no expone y no registra información innecesaria. Lo que es tuyo, es tuyo.</p>
+        <span class="safety-tag">Privacidad total · Sesión de 8 horas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ CÓMO FUNCIONA ══════ -->
+<section id="como-funciona">
+  <div class="how">
+    <div class="how-header reveal">
+      <div class="section-tag">⚡ Simple y rápido</div>
+      <h2 class="section-title">Tres pasos, cero complicaciones</h2>
+      <p class="section-sub">Desde que ingresás hasta que tenés los pagarés impresos, todo en minutos.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">1</div>
+        <h3>Recibís tu código</h3>
+        <p>Ingresás tu email, recibís un código de 6 dígitos en segundos. Sin contraseña, sin complicaciones.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">2</div>
+        <h3>Cargás la operación</h3>
+        <p>Completás los datos del deudor, el monto y los plazos. El sistema calcula automáticamente todos los vencimientos.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">3</div>
+        <h3>Imprimís y entregás</h3>
+        <p>Vista previa, PDF o impresión directa. 2 pagarés por hoja A4 apaisada, listos para firmar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ FEATURES ══════ -->
+<section class="features-section">
+  <div class="features-inner" style="padding:100px 5%;max-width:1100px;margin:0 auto">
+    <div class="reveal">
+      <div class="section-tag">✨ Features</div>
+      <h2 class="section-title">Todo lo que necesitás para operar</h2>
+      <p class="section-sub" style="margin-bottom:48px">Desde cuotas simples hasta sistemas de amortización financiera completa.</p>
+      <div class="features-list">
+        <div class="feature-item">
+          <div class="feature-icon">÷</div>
+          <div class="feature-text">
+            <h4>Cuotas iguales y cuota fija</h4>
+            <p>El sistema calcula automáticamente el redondeo y distribuye el remanente en el primer pagaré. Sin errores de centavos.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <div class="feature-text">
+            <h4>Sistema financiero completo <span style="font-size:11px;background:var(--goldbg);color:var(--gold);padding:2px 7px;border-radius:5px;font-weight:600;font-family:var(--mono)">PRO</span></h4>
+            <p>Francés, Alemán y Directo. Con TNA o tasa mensual. Cada pagaré con su monto exacto de amortización e interés.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📄</div>
+          <div class="feature-text">
+            <h4>Reporte Excel y PDF <span style="font-size:11px;background:var(--goldbg);color:var(--gold);padding:2px 7px;border-radius:5px;font-weight:600;font-family:var(--mono)">PRO</span></h4>
+            <p>Tabla completa con número, monto y vencimiento de cada pagaré. Ideal para el legajo del cliente.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-text">
+            <h4>Guiones anti-adulteración</h4>
+            <p>El monto se imprime entre guiones <strong style="font-family:var(--mono);color:var(--green)">-- 98.500 --</strong> para evitar cualquier modificación posterior al documento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="pagare-preview">
+        <div class="pg-deco-bar"></div>
+        <div class="pg-content">
+          <div class="pg-row1">
+            <div>
+              <div class="pg-label">Sellado</div>
+              <span class="pg-val-sm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+            <div>
+              <div class="pg-label">N°</div>
+              <span class="pg-val-sm"><strong>1/34</strong></span>
+            </div>
+            <div>
+              <div class="pg-label">Vencimiento</div>
+              <span class="pg-val-sm"><strong>01/05/2026</strong></span>
+            </div>
+            <div>
+              <div class="pg-label">POR U$S</div>
+              <span class="pg-amount">-- 2.897 --</span>
+            </div>
+          </div>
+          <div class="pg-line" style="font-size:8px;color:#555">LUGAR Y FECHA &nbsp; Acassuso , &nbsp; 3 &nbsp; de &nbsp; abril &nbsp; de 2026</div>
+          <div class="pg-line"><em style="font-size:10px">El día <u>viernes</u> 1 de mayo de 2026 pagaré sin protesto</em> <span style="font-size:7px;color:#777;float:right">(ART. 50 - D. LEY 5965/63)</span></div>
+          <div class="pg-line"><em style="font-size:10px">a Señor <u style="font-weight:700">________________________________</u> o a su orden la cantidad</em></div>
+          <div class="pg-line"><em style="font-size:10px">de dólares estadounidenses &nbsp;<strong>Dos mil ochocientos noventa y siete dólares con 00/100</strong></em></div>
+          <div class="pg-line" style="font-size:9px"><em>por igual valor recibido en <u>efectivo</u> &nbsp; a mi entera satisfacción</em></div>
+          <div class="pg-line" style="font-size:9px"><em>pagadero en <u>Buenos Aires</u></em></div>
+          <div class="pg-footer">
+            <div class="pg-footer-col">
+              <div>NOMBRE <div class="pg-footer-line" style="font-size:8px;font-weight:600">Juan García</div></div>
+              <div style="margin-top:4px">CALLE <div class="pg-footer-line"></div></div>
+              <div style="margin-top:4px;display:flex;gap:4px">
+                <div style="flex:2">LOC. <div class="pg-footer-line"></div></div>
+                <div style="flex:1">TEL. <div class="pg-footer-line"></div></div>
+              </div>
+            </div>
+            <div class="pg-footer-col" style="flex:.8;border-left:1px solid #c5dfc5;padding-left:8px">
+              <div style="font-size:7px;color:#555;font-weight:700;text-transform:uppercase">Firma y aclaración</div>
+              <div class="pg-footer-line" style="margin-top:6px"></div>
+              <div class="pg-footer-line" style="margin-top:8px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pg-deco-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ TARGET ══════ -->
+<section class="target-section">
+  <div class="target-inner">
+    <div class="target-header reveal">
+      <div class="section-tag">🎯 Para quién</div>
+      <h2 class="section-title">Ideal para profesionales del derecho y los negocios</h2>
+      <p class="section-sub">Cualquier operación que requiera documentar una deuda en cuotas.</p>
+    </div>
+    <div class="target-grid">
+      <div class="target-card reveal reveal-delay-1">
+        <span class="target-emoji">⚖️</span>
+        <h4>Escribanías</h4>
+        <p>Instrumentos públicos y privados con validez legal total</p>
+      </div>
+      <div class="target-card reveal reveal-delay-2">
+        <span class="target-emoji">🏛️</span>
+        <h4>Estudios Jurídicos</h4>
+        <p>Series completas para operaciones de crédito y garantías</p>
+      </div>
+      <div class="target-card reveal reveal-delay-3">
+        <span class="target-emoji">🏠</span>
+        <h4>Inmobiliarias</h4>
+        <p>Financiamiento de lotes, propiedades y emprendimientos</p>
+      </div>
+      <div class="target-card reveal reveal-delay-4">
+        <span class="target-emoji">🚗</span>
+        <h4>Concesionarias</h4>
+        <p>Planes de pago en cuotas para venta de vehículos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ PRECIOS ══════ -->
+<section class="pricing-section" id="precios">
+  <div class="pricing-inner">
+    <div class="pricing-header reveal">
+      <div class="section-tag">💳 Precios</div>
+      <h2 class="section-title">Simple y transparente</h2>
+    </div>
+
+    <div class="pricing-toggle reveal">
+      <span class="toggle-label active" id="lbl-monthly" onclick="setToggle(false)">Mensual</span>
+      <div class="toggle-switch" id="price-toggle" onclick="togglePricing()">
+        <div class="toggle-knob"></div>
+      </div>
+      <span class="toggle-label" id="lbl-annual" onclick="setToggle(true)">
+        Anual &nbsp;<span class="annual-badge">3 meses gratis</span>
+      </span>
+    </div>
+
+    <div class="pricing-cards">
+      <!-- STD -->
+      <div class="pricing-card reveal reveal-delay-1">
+        <div class="plan-name">STD</div>
+        <div class="plan-price">
+          <span class="plan-currency">$</span>
+          <span class="plan-amount" id="std-price">20.000</span>
+          <span class="plan-period">/mes</span>
+        </div>
+        <div class="plan-annual-note" id="std-annual-note"></div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Cuotas iguales y cuota fija</li>
+          <li><span class="check">✓</span> Hasta 20 operaciones por mes</li>
+          <li><span class="check">✓</span> 2FA sin contraseña</li>
+          <li><span class="check">✓</span> Documentos a tu correo</li>
+          <li><span class="check">✓</span> Historial 6 meses</li>
+          <li class="disabled"><span class="cross">✕</span> Sistema financiero (Francés/Alemán)</li>
+          <li class="disabled"><span class="cross">✕</span> Reporte Excel y PDF</li>
+          <li class="disabled"><span class="cross">✕</span> Backup completo</li>
+        </ul>
+        <a href="https://app.legalpagare.com" class="btn-plan btn-plan-std">Empezar con STD</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card popular reveal reveal-delay-2">
+        <div class="popular-tag">⭐ Más elegido</div>
+        <div class="plan-name">PRO</div>
+        <div class="plan-price">
+          <span class="plan-currency">$</span>
+          <span class="plan-amount" id="pro-price">35.000</span>
+          <span class="plan-period">/mes</span>
+        </div>
+        <div class="plan-annual-note" id="pro-annual-note"></div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Todo lo de STD</li>
+          <li><span class="check">✓</span> <strong>Operaciones ilimitadas</strong></li>
+          <li><span class="check">✓</span> <strong>Sistema financiero completo</strong></li>
+          <li><span class="check">✓</span> <strong>Reporte Excel y PDF</strong></li>
+          <li><span class="check">✓</span> <strong>Backup completo de operaciones</strong></li>
+          <li><span class="check">✓</span> Historial ilimitado</li>
+          <li><span class="check">✓</span> Soporte email prioritario</li>
+          <li><span class="check">✓</span> 2FA sin contraseña</li>
+        </ul>
+        <a href="https://app.legalpagare.com" class="btn-plan btn-plan-pro">Empezar con PRO →</a>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center;margin-top:28px;font-size:13px;color:var(--text3);font-family:var(--mono)">
+      Todos los planes incluyen <strong style="color:var(--green)">5 créditos gratuitos</strong> para probar sin compromiso · Sin tarjeta de crédito
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ CTA FINAL ══════ -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-glow"></div>
+    <h2>Empezá hoy.<br>Los primeros 5 son gratis.</h2>
+    <p>Sin contraseña, sin tarjeta de crédito, sin complicaciones.<br>Solo tu correo y tu código.</p>
+    <a href="https://app.legalpagare.com" class="btn-primary" style="font-size:17px;padding:17px 40px;margin:0 auto;display:inline-flex">
+      🚀 Crear mi cuenta gratis
+    </a>
+    <p class="cta-note">
+      <strong>5 créditos gratuitos</strong> · Acceso inmediato · D. Ley 5965/63
+    </p>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <a href="#" class="footer-logo">
+    <div class="footer-logo-icon">📜</div>
+    <span class="footer-logo-text">Legal<span>Pagaré</span></span>
+  </a>
+  <ul class="footer-links">
+    <li><a href="#seguridad">Seguridad</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="mailto:info@tasks-on.com">Contacto</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 LegalPagaré · D. Ley 5965/63</span>
+</footer>
+
+<script>
+// ── Pricing toggle ───────────────────────────────────────
+let isAnnual = false;
+
+function togglePricing() { setToggle(!isAnnual); }
+
+function setToggle(annual) {
+  isAnnual = annual;
+  const tog = document.getElementById('price-toggle');
+  const lblM = document.getElementById('lbl-monthly');
+  const lblA = document.getElementById('lbl-annual');
+
+  tog.classList.toggle('annual', annual);
+  lblM.classList.toggle('active', !annual);
+  lblA.classList.toggle('active', annual);
+
+  if (annual) {
+    document.getElementById('std-price').textContent = '15.000';
+    document.getElementById('pro-price').textContent = '27.500';
+    document.getElementById('std-annual-note').textContent = '→ $180.000/año · 3 meses gratis';
+    document.getElementById('pro-annual-note').textContent = '→ $330.000/año · 3 meses gratis';
+  } else {
+    document.getElementById('std-price').textContent = '20.000';
+    document.getElementById('pro-price').textContent = '35.000';
+    document.getElementById('std-annual-note').textContent = '';
+    document.getElementById('pro-annual-note').textContent = '';
+  }
+}
+
+// ── Scroll reveal ────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Smooth nav active ────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
