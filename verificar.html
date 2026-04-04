@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Verificar Autenticidad · LegalPagaré</title>
+<meta name="description" content="Verificá la autenticidad de un documento LegalPagaré mediante su Sello de Autenticidad SHA-256."/>
+<meta name="robots" content="noindex"/> <!-- no indexar esta página -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a2744'/><text y='.9em' font-size='75' x='12'>📜</text></svg>"/>
+<style>
+:root {
+  --navy:   #1a2744;
+  --navy2:  #243a6e;
+  --bg:     #e8eaed;
+  --bg1:    #f0f2f5;
+  --bg2:    #f8f9fa;
+  --white:  #ffffff;
+  --border: rgba(0,0,0,.10);
+  --border2:rgba(0,0,0,.16);
+  --text:   #1a1f2e;
+  --text2:  #4a5568;
+  --text3:  #8a97aa;
+  --green:  #1a6b3a;
+  --greenbg:#e8f5e9;
+  --red:    #c0392b;
+  --redbg:  #fdf0ef;
+  --gold:   #b8860b;
+  --goldbg: #fef9e7;
+  --display:'Playfair Display',Georgia,serif;
+  --body:   'DM Sans',system-ui,sans-serif;
+  --mono:   'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);background:var(--bg);color:var(--text);
+  min-height:100vh;font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,0,0,.03) 39px,rgba(0,0,0,.03) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,0,0,.03) 39px,rgba(0,0,0,.03) 40px);
+}
+input,button{font-family:var(--body)}
+
+/* ── NAV ── */
+nav{
+  background:rgba(232,234,237,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border2);padding:0 5%;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:10;box-shadow:0 1px 8px rgba(0,0,0,.07);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#1a2744,#243a6e);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 4px 12px rgba(26,39,68,.2)}
+.nav-logo-text{font-family:var(--display);font-size:19px;font-weight:700;color:var(--navy)}
+.nav-logo-text span{color:var(--green)}
+.nav-back{font-size:13px;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;border:1px solid var(--border2);background:var(--white);transition:all .2s}
+.nav-back:hover{color:var(--navy);border-color:var(--navy)}
+
+/* ── HERO ── */
+.hero{
+  padding:60px 5% 40px;text-align:center;
+  max-width:700px;margin:0 auto;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(26,39,68,.07);border:1px solid rgba(26,39,68,.15);
+  border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;
+  color:var(--navy);font-family:var(--mono);margin-bottom:20px;
+}
+.hero h1{
+  font-family:var(--display);font-size:clamp(28px,5vw,48px);
+  font-weight:900;color:var(--navy);letter-spacing:-.02em;line-height:1.15;
+  margin-bottom:12px;
+}
+.hero p{font-size:16px;color:var(--text2);font-weight:300;margin-bottom:36px;line-height:1.7}
+
+/* ── SEARCH BOX ── */
+.search-wrap{
+  max-width:680px;margin:0 auto 48px;
+  background:var(--white);border:1px solid var(--border2);border-radius:14px;
+  padding:24px;box-shadow:0 4px 20px rgba(26,39,68,.08);
+}
+.search-lbl{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;display:block}
+.search-row{display:flex;gap:10px}
+.search-inp{
+  flex:1;background:var(--bg1);border:1px solid var(--border2);border-radius:9px;
+  padding:12px 16px;font-size:13px;color:var(--text);outline:none;
+  font-family:var(--mono);transition:border-color .2s;letter-spacing:.3px;
+}
+.search-inp:focus{border-color:var(--navy);background:var(--white)}
+.search-inp::placeholder{color:var(--text3);font-size:12px;letter-spacing:0;font-family:var(--body)}
+.search-btn{
+  padding:12px 24px;border-radius:9px;border:none;background:var(--navy);
+  color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;
+  white-space:nowrap;display:flex;align-items:center;gap:7px;
+}
+.search-btn:hover{background:var(--navy2);transform:translateY(-1px)}
+.search-btn:disabled{opacity:.5;pointer-events:none}
+.search-note{font-size:11px;color:var(--text3);margin-top:10px;font-family:var(--mono)}
+
+/* ── SPINNER ── */
+.spinner-wrap{display:none;text-align:center;padding:40px;color:var(--text3)}
+.spinner{width:36px;height:36px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--navy);animation:spin .8s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner-txt{margin-top:14px;font-size:13px}
+
+/* ── RESULTADO ── */
+.result-wrap{max-width:680px;margin:0 auto 60px;display:none}
+
+/* VÁLIDO */
+.result-valid{
+  background:var(--white);border:2px solid #388e3c;border-radius:14px;
+  overflow:hidden;box-shadow:0 8px 32px rgba(26,107,58,.12);
+}
+.result-head-ok{
+  background:linear-gradient(135deg,#1a5c1a,#2e7d32);
+  padding:20px 26px;display:flex;align-items:center;gap:14px;
+}
+.result-head-ok .icon{font-size:32px}
+.result-head-ok .title{color:#fff;font-size:17px;font-weight:700}
+.result-head-ok .sub{color:#a5d6a7;font-size:11px;margin-top:3px}
+
+/* INVÁLIDO */
+.result-invalid{
+  background:var(--white);border:2px solid #c0392b;border-radius:14px;
+  overflow:hidden;box-shadow:0 8px 32px rgba(192,57,43,.1);
+}
+.result-head-err{
+  background:linear-gradient(135deg,#922b21,#c0392b);
+  padding:20px 26px;display:flex;align-items:center;gap:14px;
+}
+.result-head-err .icon{font-size:32px}
+.result-head-err .title{color:#fff;font-size:17px;font-weight:700}
+.result-head-err .sub{color:#f5b7b1;font-size:11px;margin-top:3px}
+
+/* Body resultado */
+.result-body{padding:24px 26px}
+
+.result-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;
+}
+@media(max-width:520px){.result-grid{grid-template-columns:1fr}}
+
+.rg-item{background:var(--bg1);border:1px solid var(--border);border-radius:9px;padding:12px 14px}
+.rg-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-bottom:5px}
+.rg-val{font-size:14px;font-weight:600;color:var(--text)}
+.rg-item.full{grid-column:1/-1}
+.rg-item.highlight{border-color:rgba(26,39,68,.2);background:rgba(26,39,68,.04)}
+.rg-val.mono{font-family:var(--mono);font-size:11px;word-break:break-all;letter-spacing:.3px;color:var(--navy)}
+
+/* Hash box */
+.hash-box{
+  background:linear-gradient(135deg,rgba(26,39,68,.05),rgba(26,39,68,.02));
+  border:1px solid rgba(26,39,68,.15);border-radius:10px;padding:16px;
+  margin-bottom:16px;
+}
+.hash-box-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.hash-val{font-family:var(--mono);font-size:11px;color:var(--navy);word-break:break-all;letter-spacing:.5px;line-height:1.6;background:var(--white);padding:10px 12px;border-radius:7px;border:1px solid rgba(26,39,68,.12)}
+
+/* Disclaimer */
+.disclaimer{
+  font-size:11px;color:var(--text3);line-height:1.7;border-top:1px solid var(--border);
+  padding-top:14px;margin-top:16px;
+}
+
+/* ── INFO CARDS ── */
+.info-section{max-width:680px;margin:0 auto 60px;padding:0 5%}
+.info-title{font-family:var(--display);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.info-cards{grid-template-columns:1fr}}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.info-card .ico{font-size:28px;margin-bottom:10px}
+.info-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.info-card p{font-size:12px;color:var(--text2);line-height:1.6}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border2);padding:24px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;background:var(--bg2);
+}
+.footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.footer-logo-icon{width:26px;height:26px;background:linear-gradient(135deg,#1a2744,#243a6e);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.footer-logo-text{font-family:var(--display);font-size:15px;font-weight:700;color:var(--navy)}
+.footer-logo-text span{color:var(--green)}
+.footer-copy{font-size:11px;color:var(--text3);font-family:var(--mono)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.anim{animation:fadeIn .4s ease both}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://legalpagare.com" class="nav-logo">
+    <div class="nav-logo-icon">📜</div>
+    <span class="nav-logo-text">Legal<span>Pagaré</span></span>
+  </a>
+  <a href="https://legalpagare.com" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🔐 Sello de Autenticidad</div>
+  <h1>Verificación de documentos</h1>
+  <p>Ingresá el código de autenticidad para comprobar que un pagaré generado con LegalPagaré no fue alterado.</p>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <label class="search-lbl">Código de autenticidad (SHA-256)</label>
+  <div class="search-row">
+    <input type="text" class="search-inp" id="hash-input"
+           placeholder="Pegá aquí el código de 64 caracteres..."
+           onkeydown="if(event.key==='Enter')verificar()"/>
+    <button class="search-btn" id="btn-verificar" onclick="verificar()">
+      🔍 Verificar
+    </button>
+  </div>
+  <div class="search-note">El código se encuentra en el pie del pagaré impreso y en el email de certificación.</div>
+</div>
+
+<!-- SPINNER -->
+<div class="spinner-wrap" id="spinner">
+  <div class="spinner"></div>
+  <div class="spinner-txt">Verificando en el registro...</div>
+</div>
+
+<!-- RESULTADO -->
+<div class="result-wrap" id="result-wrap"></div>
+
+<!-- INFO -->
+<div class="info-section">
+  <div class="info-title">¿Cómo funciona el Sello de Autenticidad?</div>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="ico">🔐</div>
+      <h4>Código único</h4>
+      <p>Cada serie de pagarés genera un código SHA-256 único basado en los datos del documento.</p>
+    </div>
+    <div class="info-card">
+      <div class="ico">📧</div>
+      <h4>Fecha cierta</h4>
+      <p>El código se envía por email a deudor y acreedor, estableciendo una fecha cierta e irrefutable.</p>
+    </div>
+    <div class="info-card">
+      <div class="ico">✓</div>
+      <h4>Verificación pública</h4>
+      <p>Cualquier persona puede verificar la autenticidad de un documento escaneando el QR o ingresando el código aquí.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://legalpagare.com" class="footer-logo">
+    <div class="footer-logo-icon">📜</div>
+    <span class="footer-logo-text">Legal<span>Pagaré</span></span>
+  </a>
+  <span class="footer-copy">D. Ley 5965/63 · legalpagare.com</span>
+</footer>
+
+<script>
+// ── CONFIGURACIÓN ────────────────────────────────────────────────────────
+const API_URL = 'https://script.google.com/macros/s/AKfycbx919bs0SGh5BsOg0MJeDIdgtUvGkmSxFSwk0JaxmvYlsPYU3IXK0zZQb4iMTnKviS7/exec';
+
+// ── INIT: leer hash de la URL ────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const h = params.get('h') || params.get('hash') || '';
+  if (h) {
+    document.getElementById('hash-input').value = h;
+    verificar();
+  }
+});
+
+// ── VERIFICAR ────────────────────────────────────────────────────────────
+async function verificar() {
+  const hash = document.getElementById('hash-input').value.trim().toLowerCase();
+  if (!hash) { alert('Ingresá el código de autenticidad'); return; }
+  if (hash.length < 20) { mostrarError('El código ingresado es demasiado corto. Verificá que lo hayas copiado completo.'); return; }
+
+  setLoading(true);
+  document.getElementById('result-wrap').style.display = 'none';
+  document.getElementById('result-wrap').innerHTML = '';
+
+  try {
+    const url = API_URL + '?action=verificarHash&hash=' + encodeURIComponent(hash);
+    const res  = await fetch(url, { redirect: 'follow' });
+    const txt  = await res.text();
+    let data;
+    try { data = JSON.parse(txt); }
+    catch { const m = txt.match(/\{[\s\S]*\}/); data = m ? JSON.parse(m[0]) : { ok: false, error: 'Respuesta inválida' }; }
+
+    if (data.ok) mostrarValido(data);
+    else         mostrarError(data.error || 'Código no encontrado.');
+  } catch (err) {
+    mostrarError('Error de conexión. Intentá de nuevo.');
+  }
+  setLoading(false);
+}
+
+function setLoading(on) {
+  document.getElementById('spinner').style.display     = on ? 'block' : 'none';
+  document.getElementById('btn-verificar').disabled    = on;
+  document.getElementById('btn-verificar').textContent = on ? 'Verificando...' : '🔍 Verificar';
+}
+
+function mostrarValido(d) {
+  const wrap = document.getElementById('result-wrap');
+  const simb = (d.moneda==='USD'||d.moneda==='U$D') ? 'U$S' : '$';
+  const montoFmt = d.montoTotal ? simb + ' ' + parseFloat(d.montoTotal).toLocaleString('es-AR') : '—';
+
+  wrap.innerHTML = `
+    <div class="result-valid anim">
+      <div class="result-head-ok">
+        <div class="icon">✅</div>
+        <div>
+          <div class="title">Documento auténtico y verificado</div>
+          <div class="sub">El código coincide con el registro oficial · D. Ley 5965/63</div>
+        </div>
+      </div>
+      <div class="result-body">
+        <div class="result-grid">
+          <div class="rg-item highlight">
+            <div class="rg-lbl">Operación N°</div>
+            <div class="rg-val" style="font-family:var(--mono)">${esc(d.orden)}</div>
+          </div>
+          <div class="rg-item highlight">
+            <div class="rg-lbl">Fecha de certificación</div>
+            <div class="rg-val">${esc(d.fechaEntrega||d.fechaEmision)}</div>
+          </div>
+          <div class="rg-item">
+            <div class="rg-lbl">Deudor</div>
+            <div class="rg-val">${esc(d.deudor||'—')}</div>
+          </div>
+          ${d.tipoDoc ? `<div class="rg-item">
+            <div class="rg-lbl">Documento del deudor</div>
+            <div class="rg-val">${esc(d.tipoDoc)} ${esc(d.nroDoc)}</div>
+          </div>` : ''}
+          ${d.acreedor ? `<div class="rg-item">
+            <div class="rg-lbl">Acreedor</div>
+            <div class="rg-val">${esc(d.acreedor)}</div>
+          </div>` : `<div class="rg-item">
+            <div class="rg-lbl">Acreedor</div>
+            <div class="rg-val" style="color:var(--text3);font-style:italic">A la orden / endosable</div>
+          </div>`}
+          <div class="rg-item">
+            <div class="rg-lbl">Moneda</div>
+            <div class="rg-val">${esc(simb)}</div>
+          </div>
+          <div class="rg-item">
+            <div class="rg-lbl">Cantidad de pagarés</div>
+            <div class="rg-val">${esc(String(d.cantCuotas||'—'))}</div>
+          </div>
+          <div class="rg-item">
+            <div class="rg-lbl">Monto total</div>
+            <div class="rg-val" style="color:var(--navy);font-weight:700">${montoFmt}</div>
+          </div>
+          <div class="rg-item full">
+            <div class="rg-lbl">Fecha de emisión del documento</div>
+            <div class="rg-val">${esc(d.fechaEmision||'—')}</div>
+          </div>
+        </div>
+
+        <div class="hash-box">
+          <div class="hash-box-lbl">🔐 Código de autenticidad verificado (SHA-256)</div>
+          <div class="hash-val">${esc(d.hash)}</div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Nota legal:</strong> Este Sello de Autenticidad certifica que los datos del documento coinciden con el registro generado por LegalPagaré al momento de la emisión.
+          La fecha cierta queda establecida por el email de certificación enviado a las partes.
+          El pagaré físico con firma manuscrita constituye el instrumento legal bajo D. Ley 5965/63.
+        </div>
+      </div>
+    </div>`;
+  wrap.style.display = 'block';
+  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function mostrarError(msg) {
+  const wrap = document.getElementById('result-wrap');
+  wrap.innerHTML = `
+    <div class="result-invalid anim">
+      <div class="result-head-err">
+        <div class="icon">❌</div>
+        <div>
+          <div class="title">Documento no verificado</div>
+          <div class="sub">El código no coincide con ningún registro</div>
+        </div>
+      </div>
+      <div class="result-body">
+        <p style="color:var(--text2);margin-bottom:16px">${esc(msg)}</p>
+        <div style="background:#fdf0ef;border:1px solid #f5b7b1;border-radius:9px;padding:14px;font-size:13px;color:var(--red);line-height:1.7">
+          <strong>Posibles causas:</strong><br>
+          • El código fue copiado incompleto o con errores<br>
+          • El documento pudo haber sido alterado<br>
+          • El código no corresponde a un pagaré LegalPagaré
+        </div>
+        <div class="disclaimer" style="margin-top:16px">
+          Si creés que hay un error, contactá a <a href="mailto:info@tasks-on.com" style="color:var(--navy)">info@tasks-on.com</a> indicando el código y los datos del documento.
+        </div>
+      </div>
+    </div>`;
+  wrap.style.display = 'block';
+  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+</script>
+</body>
+</html>
