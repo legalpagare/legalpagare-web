@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<<<<<<< HEAD
+<title>LegalPagaré — Pagarés Legales con Sello de Autenticidad | D. Ley 5965/63</title>
+<meta name="description" content="El único sistema que genera pagarés con Sello de Autenticidad SHA-256, QR verificable y fecha cierta irrefutable. Para escribanías, estudios jurídicos e inmobiliarias. D. Ley 5965/63 Argentina."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://legalpagare.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://legalpagare.com/"/>
+<meta property="og:title" content="LegalPagaré — Pagarés con Sello de Autenticidad verificable"/>
+<meta property="og:description" content="Pagarés legales con hash SHA-256, QR verificable y fecha cierta. Para escribanías, estudios jurídicos e inmobiliarias."/>
+<meta property="og:image" content="https://legalpagare.com/og-image.png"/>
+<meta property="og:locale" content="es_AR"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' rx=\'20\' fill=\'%231a2744\'/><text y=\'.9em\' font-size=\'75\' x=\'12\'>📜</text></svg>"/>
+=======
 
 <!-- ══ SEO PRIMARIO ══ -->
 <title>LegalPagaré — Confección de Pagarés Legales en Minutos | D. Ley 5965/63</title>
@@ -93,6 +106,7 @@
 
 <!-- ══ FAVICON ══ -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a2744'/><text y='.9em' font-size='75' x='12'>📜</text></svg>"/>
+>>>>>>> deb61281e18dc130b890fe591285651b0c5927ff
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -1566,16 +1580,94 @@ footer {
 .reveal-delay-3 { transition-delay: .3s; }
 .reveal-delay-4 { transition-delay: .4s; }
 </style>
+<style>
+/* ══ SELLO DE AUTENTICIDAD ══ */
+.sello-section{background:linear-gradient(180deg,var(--bg1) 0%,#eef1f7 100%)}
+.sello-inner{max-width:1100px;margin:0 auto}
+.sello-header{text-align:center;margin-bottom:64px}
+.sello-header .section-sub{margin:0 auto}
+.sello-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:860px){.sello-grid{grid-template-columns:1fr}}
+.sello-visual{background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:32px;box-shadow:0 8px 40px rgba(26,39,68,.1);position:relative;overflow:hidden}
+.sello-visual::before{content:\'\';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--navy),var(--green))}
+.sello-visual-title{font-size:11px;font-family:var(--mono);font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:20px}
+.sello-chain{display:flex;flex-direction:column;gap:12px}
+.sello-step{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:12px;background:var(--bg1);border:1px solid var(--border);transition:all .3s}
+.sello-step:hover{border-color:rgba(26,107,58,.25);background:var(--greenbg);transform:translateX(4px)}
+.sello-step-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--bg2);border:1px solid var(--border)}
+.sello-step-text h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.sello-step-text p{font-size:12px;color:var(--text2);line-height:1.5;font-weight:300}
+.sello-hash{margin-top:16px;padding:12px 14px;background:rgba(26,39,68,.04);border:1px solid rgba(26,39,68,.12);border-radius:10px;font-family:var(--mono);font-size:10px;color:var(--navy);word-break:break-all;line-height:1.6}
+.sello-hash-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:4px}
+.sello-features{display:flex;flex-direction:column;gap:28px}
+.sf-item{display:flex;gap:16px;align-items:flex-start}
+.sf-icon{width:48px;height:48px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px}
+.sf-icon.navy{background:rgba(26,39,68,.08);border:1px solid rgba(26,39,68,.15)}
+.sf-icon.green{background:var(--greenbg);border:1px solid rgba(34,197,94,.15)}
+.sf-icon.gold{background:var(--goldbg);border:1px solid rgba(184,134,11,.15)}
+.sf-text h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;font-family:var(--display)}
+.sf-text p{font-size:14px;color:var(--text2);line-height:1.6;font-weight:300}
+.sf-tag{display:inline-flex;margin-top:8px;font-size:11px;font-family:var(--mono);color:var(--greend);background:var(--greenbg);border:1px solid rgba(26,107,58,.2);padding:3px 10px;border-radius:10px}
+
+/* ══ ENDOSO BANNER ══ */
+.endoso-banner{max-width:1100px;margin:0 auto;background:var(--navy);border-radius:20px;padding:48px 56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;box-shadow:0 16px 48px rgba(26,39,68,.3);position:relative;overflow:hidden}
+.endoso-banner::before{content:\'\';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.04)}
+.endoso-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:500;color:rgba(255,255,255,.8);font-family:var(--mono);margin-bottom:16px}
+.endoso-banner h3{font-family:var(--display);font-size:clamp(22px,3vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+.endoso-banner p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.7;font-weight:300;max-width:520px}
+.endoso-verify{flex-shrink:0;text-align:center}
+.endoso-verify-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px 28px;min-width:200px}
+.endoso-verify-box .evb-icon{font-size:40px;margin-bottom:10px;display:block}
+.endoso-verify-box p{font-size:12px;color:rgba(255,255,255,.7);font-family:var(--mono);margin-bottom:12px}
+.evb-url{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 12px;font-family:var(--mono);font-size:10px;color:#fff;text-decoration:none;display:block;transition:all .2s}
+.evb-url:hover{background:rgba(255,255,255,.2)}
+@media(max-width:700px){.endoso-banner{grid-template-columns:1fr;padding:32px}}
+
+/* ══ PRO BADGE ══ */
+.pro-badge{font-size:10px;background:var(--goldbg);color:var(--gold);padding:2px 7px;border-radius:5px;font-weight:600;font-family:var(--mono)}
+
+/* ══ PAGARE HERO ══ */
+.ph{background:#f6fdf4;border:4px solid #1a5c1a;border-radius:5px;overflow:hidden;width:440px;font-family:Georgia,serif;color:#111;position:relative}
+.ph::after{content:\'\';position:absolute;inset:5px;border:1px solid #388e3c;pointer-events:none;z-index:2;border-radius:2px}
+.ph-deco{background:#2e7d32;height:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ph-deco::before{content:\'❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧ ✿ ❧\';color:#a5d6a7;font-size:6px;letter-spacing:3px;white-space:nowrap}
+.ph-body{padding:8px 12px 7px}
+.ph-r1{display:flex;align-items:flex-end;gap:6px;border-bottom:1px solid #c5dfc5;padding-bottom:5px;margin-bottom:4px;flex-wrap:wrap}
+.ph-field{display:flex;flex-direction:column}
+.ph-lbl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#444;font-family:Arial,sans-serif;line-height:1.2}
+.ph-val{font-size:9.5px;font-weight:600;font-family:Arial,sans-serif;border-bottom:1px solid #555;padding:1px 3px;min-width:45px;color:#111}
+.ph-val-loc{font-size:8.5px;font-family:Arial,sans-serif;border-bottom:1px solid #555;padding:1px 3px;min-width:120px;color:#111}
+.ph-amount{margin-left:auto;flex-shrink:0}
+.ph-amtval{font-size:14px;font-weight:800;font-family:Arial,sans-serif;color:#111;border-bottom:2px solid #222;padding:0 4px}
+.ph-line{font-style:italic;font-size:10px;color:#222;border-bottom:1px solid #ddd;padding-bottom:2px;margin-bottom:2px;line-height:1.4}
+.ph-line-sm{font-size:8.5px;color:#555;font-family:Arial,sans-serif;border-bottom:1px solid #eee;padding-bottom:2px;margin-bottom:2px}
+.ph-footer{display:flex;gap:8px;margin-top:5px;border-top:1px solid #c5dfc5;padding-top:4px;align-items:stretch}
+.ph-footer-left{flex:1.3;display:flex;flex-direction:column;gap:3px}
+.ph-footer-right{flex:.65;border-left:1px solid #c5dfc5;padding-left:6px;display:flex;flex-direction:row;gap:5px;align-items:stretch}
+.ph-firma-col{flex:1;display:flex;flex-direction:column;gap:2px}
+.ph-frow{display:flex;align-items:baseline;gap:4px}
+.ph-flbl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;font-family:Arial,sans-serif;color:#333;white-space:nowrap}
+.ph-fline{flex:1;border-bottom:1px solid #555;min-height:9px;font-size:8px;font-family:Arial,sans-serif}
+.ph-qr{width:52px;height:52px;flex-shrink:0;border:1px solid #c5dfc5;border-radius:3px;overflow:hidden}
+.ph-sello{font-size:5px;font-family:monospace;color:#1a2744;background:#f0f4f0;border-top:1px dashed #aaa;padding:2px 7px;display:flex;justify-content:space-between;gap:6px}
+
+/* ══ PAGARE FLOAT ══ */
+.pagare-float{position:relative;filter:drop-shadow(0 24px 48px rgba(26,39,68,.22));transition:transform .4s ease;animation:floatDoc 4s ease-in-out infinite}
+@keyframes floatDoc{0%,100%{transform:rotate(1deg) translateY(0)}50%{transform:rotate(1deg) translateY(-10px)}}
+.pagare-float:hover{animation:none;transform:rotate(0deg) translateY(-4px)}
+.seal-badge{margin-top:12px;text-align:center;display:inline-flex;align-items:center;gap:7px;background:rgba(26,39,68,.07);border:1px solid rgba(26,39,68,.15);border-radius:20px;padding:6px 16px;font-size:11px;font-family:var(--mono);color:var(--navy);width:fit-content;margin-left:auto;margin-right:auto}
+</style>
+
 </head>
 <body>
 
-<!-- ══════ NAV ══════ -->
 <nav>
   <a href="#" class="nav-logo">
     <div class="nav-logo-icon">📜</div>
     <span class="nav-logo-text">Legal<span>Pagaré</span></span>
   </a>
   <ul class="nav-links">
+    <li><a href="#sello">Sello de Autenticidad</a></li>
     <li><a href="#seguridad">Seguridad</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#precios">Precios</a></li>
@@ -1586,32 +1678,40 @@ footer {
   </div>
 </nav>
 
-<!-- ══════ HERO ══════ -->
+<!-- HERO -->
 <section class="hero">
   <div style="width:100%;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
     <div class="hero-content" style="text-align:left">
-      <div class="hero-badge">D. Ley 5965/63 · Pagarés sin protesto</div>
-      <h1 style="font-size:clamp(34px,4.5vw,62px)">
-        Imprimí series de pagarés
-        <em>rápido, sin errores</em>
-        y con total seguridad
+      <div class="hero-badge">D. Ley 5965/63 · Con Sello de Autenticidad</div>
+      <h1 style="font-size:clamp(32px,4.5vw,60px)">
+        Pagarés legales con
+        <em>autenticidad verificable</em>
+        en segundos
       </h1>
       <p class="hero-sub" style="margin-left:0;text-align:left">
-        La herramienta profesional para escribanías, estudios jurídicos e inmobiliarias.
-        Generá lotes hasta 150 pagarés en minutos — con sistema financiero Francés, Alemán y tasa fija incluido.
+        El único sistema que genera pagarés con <strong>Sello de Autenticidad SHA-256</strong>, QR verificable y fecha cierta irrefutable — para escribanías, estudios jurídicos e inmobiliarias.
       </p>
       <div class="hero-actions" style="justify-content:flex-start">
-        <a href="https://app.legalpagare.com" class="btn-primary">
-          🚀 Empezá gratis ahora
-        </a>
-        <a href="#como-funciona" class="btn-secondary">
-          Ver cómo funciona →
-        </a>
+        <a href="https://app.legalpagare.com" class="btn-primary">🚀 Empezá gratis</a>
+        <a href="#sello" class="btn-secondary">Ver el Sello →</a>
       </div>
-      <p class="hero-free-note" style="text-align:left">
-        <strong>5 créditos gratuitos</strong> · Sin tarjeta de crédito · Sin contraseña
-      </p>
+      <p class="hero-free-note" style="text-align:left"><strong>5 créditos gratuitos</strong> · Sin tarjeta · Sin contraseña</p>
     </div>
+<<<<<<< HEAD
+    <div style="display:flex;align-items:center;justify-content:center">
+      <div>
+        <div style="font-size:11px;font-family:var(--mono);color:var(--text3);text-align:center;margin-bottom:8px;letter-spacing:.5px">Pagaré real generado con LegalPagaré</div>
+        <div class="pagare-float">
+          <div class="ph">
+            <div class="ph-deco"></div>
+            <div class="ph-body">
+              <div class="ph-r1">
+                <div class="ph-field"><div class="ph-lbl">Sellado</div><div class="ph-val">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+                <div class="ph-field"><div class="ph-lbl">N°</div><div class="ph-val"><strong>1/10</strong></div></div>
+                <div class="ph-field"><div class="ph-lbl">Vencimiento</div><div class="ph-val"><strong>01/05/2026</strong></div></div>
+                <div class="ph-field"><div class="ph-lbl">Lugar y Fecha</div><div class="ph-val-loc">Tigre, 4 de abril de 2026</div></div>
+                <div class="ph-amount"><div class="ph-lbl">POR U$S</div><div class="ph-amtval">-- 500 --</div></div>
+=======
 
     <!-- Pagaré visual flotante -->
     <div class="hero-pagare-wrap">
@@ -1624,46 +1724,48 @@ footer {
               <div class="ph-field">
                 <div class="ph-lbl">Sellado</div>
                 <div class="ph-val">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+>>>>>>> deb61281e18dc130b890fe591285651b0c5927ff
               </div>
-              <div class="ph-field">
-                <div class="ph-lbl">N°</div>
-                <div class="ph-val"><strong>1 / 34</strong></div>
-              </div>
-              <div class="ph-field">
-                <div class="ph-lbl">Vencimiento</div>
-                <div class="ph-val"><strong>01/05/2026</strong></div>
-              </div>
-              <div class="ph-amount">
-                <div class="ph-lbl">POR U$S</div>
-                <div class="ph-amtval">-- 2.897 --</div>
-              </div>
-            </div>
-            <div class="ph-line-sm">LUGAR Y FECHA &nbsp; Ciudad Autónoma de Buenos Aires , &nbsp; 3 &nbsp; de &nbsp; abril &nbsp; de 2026</div>
-            <div class="ph-line"><em>El día <u>viernes</u> 1 de mayo de 2026 &nbsp; pagaré sin protesto</em></div>
-            <div class="ph-line"><em>a Señor <span class="ph-blank-long"></span> o a su orden la cantidad</em></div>
-            <div class="ph-line"><em>de dólares estadounidenses &nbsp;<strong>Dos mil ochocientos noventa y siete con 00/100</strong></em></div>
-            <div class="ph-line-sm" style="margin-top:6px"><em>por igual valor recibido en <u>efectivo</u> &nbsp; a mi entera satisfacción</em></div>
-            <div class="ph-line-sm"><em>pagadero en <u>Buenos Aires</u></em></div>
-            <div class="ph-footer">
-              <div class="ph-footer-left">
-                <div class="ph-frow"><span class="ph-flbl">Nombre</span><div class="ph-fline" style="font-weight:700;font-size:9px;padding-left:3px">Juan García</div></div>
-                <div class="ph-frow"><span class="ph-flbl">Calle</span><div class="ph-fline"></div></div>
-                <div class="ph-frow">
-                  <span class="ph-flbl">Loc.</span><div class="ph-fline" style="flex:2.5"></div>
-                  <span class="ph-flbl">Tel.</span><div class="ph-fline" style="flex:1.2"></div>
+              <div class="ph-line"><em>El día <u>viernes</u> &nbsp;1 de mayo de 2026 &nbsp; pagaré sin protesto</em> <span style="font-size:7px;color:#777;float:right">(ART. 50 - D. LEY 5965/63)</span></div>
+              <div class="ph-line"><em>a Señor <span style="display:inline-block;width:130px;border-bottom:1px solid #555;vertical-align:bottom"></span> &nbsp; o a su orden la cantidad</em></div>
+              <div class="ph-line"><em>de dólares estadounidenses &nbsp;<strong>Quinientos dólares con 00/100</strong></em></div>
+              <div class="ph-line-sm"><em>por igual valor recibido en <u>mercadería</u> &nbsp; a mi entera satisfacción</em></div>
+              <div class="ph-line-sm"><em>pagadero en <u>lavalle 419</u></em></div>
+              <div class="ph-footer">
+                <div class="ph-footer-left">
+                  <div class="ph-frow"><span class="ph-flbl">Nombre y Apellido</span><div class="ph-fline" style="font-weight:700;font-size:8.5px;padding-left:3px">Pero Induni</div></div>
+                  <div class="ph-frow"><span class="ph-flbl">Calle</span><div class="ph-fline" style="font-size:8px;padding-left:3px">los carolinos 4390</div></div>
+                  <div class="ph-frow">
+                    <span class="ph-flbl">Loc.</span><div class="ph-fline" style="flex:2.2;font-size:7.5px;padding-left:3px">Córdoba - Villa Allende</div>
+                    <span class="ph-flbl">Tel.</span><div class="ph-fline" style="flex:1"></div>
+                  </div>
+                  <div class="ph-frow">
+                    <span class="ph-flbl">Tipo Doc.</span><div class="ph-fline" style="flex:1;font-size:7.5px;padding-left:3px">D.N.I.</div>
+                    <span class="ph-flbl">N° Doc.</span><div class="ph-fline" style="flex:2;font-size:7.5px;padding-left:3px">12.345.678</div>
+                  </div>
+                </div>
+                <div class="ph-footer-right">
+                  <div class="ph-firma-col">
+                    <div class="ph-flbl" style="white-space:nowrap">Firma y aclaración</div>
+                    <div class="ph-fline" style="margin-top:8px;flex:1"></div>
+                    <div class="ph-fline" style="margin-top:8px"></div>
+                  </div>
+                  <div class="ph-qr">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=4&data=https%3A%2F%2Flegalpagare.com%2Fverificar%3Fh%3Dd4c6b0ba12e043aaf0928e35541bba205adc2f50b6b7ad67debb18edc7ce145d" width="52" height="52" style="display:block" alt="QR Verificar"/>
+                  </div>
                 </div>
               </div>
-              <div class="ph-footer-right">
-                <div class="ph-flbl" style="white-space:nowrap">Firma y aclaración</div>
-                <div class="ph-fline" style="margin-top:8px"></div>
-                <div class="ph-fline" style="margin-top:10px"></div>
-              </div>
+            </div>
+            <div class="ph-deco"></div>
+            <div class="ph-sello">
+              <span>🔐 Sello LegalPagaré · d4c6b0ba12e043aaf0928e35541bba205adc2f50b6b7ad67debb18edc7ce145d</span>
+              <span style="white-space:nowrap">legalpagare.com/verificar</span>
             </div>
           </div>
-          <div class="ph-deco"></div>
         </div>
-        <!-- Badge de seguridad -->
-        <div class="hero-pagare-badge">🔐 Firmado con 2FA · Sin contraseña</div>
+        <div style="text-align:center;margin-top:12px">
+          <span class="seal-badge">🔐 Sello de Autenticidad verificable · Plan PRO</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1671,23 +1773,131 @@ footer {
 
 <div class="divider"></div>
 
+<<<<<<< HEAD
+<!-- SELLO DE AUTENTICIDAD -->
+<section class="sello-section" id="sello">
+  <div class="sello-inner">
+    <div class="sello-header reveal">
+      <div class="section-tag">🔐 Innovación jurídica</div>
+      <h2 class="section-title">El Sello de Autenticidad LegalPagaré</h2>
+      <p class="section-sub">Cada pagaré entregado queda registrado con un hash SHA-256 único e irrepetible. Cualquier persona puede verificar su autenticidad desde el celular, en segundos.</p>
+    </div>
+    <div class="sello-grid reveal">
+      <div class="sello-visual">
+        <div class="sello-visual-title">Cómo funciona el Sello</div>
+        <div class="sello-chain">
+          <div class="sello-step">
+            <div class="sello-step-icon">✍️</div>
+            <div class="sello-step-text">
+              <h4>Se firman los datos del documento</h4>
+              <p>Al imprimir y entregar, el sistema combina: N° de operación, deudor, tipo y N° de documento, acreedor, moneda, cantidad de cuotas, monto total y todos los vencimientos individuales.</p>
+            </div>
+          </div>
+          <div class="sello-step">
+            <div class="sello-step-icon">⚙️</div>
+            <div class="sello-step-text">
+              <h4>SHA-256 genera un hash único</h4>
+              <p>El algoritmo SHA-256 produce una huella digital de 64 caracteres. Es matemáticamente imposible que dos documentos distintos produzcan el mismo hash.</p>
+            </div>
+          </div>
+          <div class="sello-step">
+            <div class="sello-step-icon">📧</div>
+            <div class="sello-step-text">
+              <h4>Email certificado a las partes</h4>
+              <p>Google envía el hash y los datos completos al deudor, al acreedor y al operador. El timestamp del email de Google es la <strong>fecha cierta irrefutable</strong>.</p>
+            </div>
+          </div>
+          <div class="sello-step">
+            <div class="sello-step-icon">📱</div>
+            <div class="sello-step-text">
+              <h4>QR en cada pagaré impreso</h4>
+              <p>El código QR impreso en el documento apunta directamente a la verificación pública. Cualquier celular puede leerlo sin app adicional.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sello-hash">
+          <div class="sello-hash-label">Hash SHA-256 ejemplo</div>
+          d4c6b0ba12e043aaf0928e35541bba205adc2f50b6b7ad67debb18edc7ce145d
+        </div>
+      </div>
+      <div class="sello-features">
+        <div class="sf-item">
+          <div class="sf-icon green">📅</div>
+          <div class="sf-text">
+            <h4>Fecha cierta irrefutable</h4>
+            <p>El email enviado por Google al momento de la entrega establece la fecha cierta del documento de forma irrefutable. Sin posibilidad de antedatado ni modificación posterior.</p>
+            <span class="sf-tag">✓ Google certifica la fecha</span>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-icon navy">💰</div>
+          <div class="sf-text">
+            <h4>Monto de cada pagaré verificable</h4>
+            <p>La verificación muestra el monto exacto de cada pagaré individual — no solo el total de la operación. Fundamental para operaciones de <strong>endoso de un pagaré único</strong> dentro de una serie.</p>
+            <span class="sf-tag">✓ Endoso individual protegido</span>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-icon gold">🔍</div>
+          <div class="sf-text">
+            <h4>Verificación pública e instantánea</h4>
+            <p>Cualquier persona — banco, escribano, juez — puede verificar la autenticidad escaneando el QR o ingresando el hash en <strong>legalpagare.com/verificar</strong>. Sin registro, sin contraseña.</p>
+            <span class="sf-tag">✓ Verificable por terceros</span>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-icon green">🛡️</div>
+          <div class="sf-text">
+            <h4>Imposible de falsificar</h4>
+            <p>El hash cubre todos los campos críticos. Cualquier modificación — por mínima que sea — produce un hash completamente distinto que no coincide con el registro.</p>
+            <span class="sf-tag">✓ Anti-adulteración matemático</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ENDOSO BANNER -->
+<section style="padding:80px 5%;position:relative;z-index:1">
+  <div class="endoso-banner reveal">
+    <div>
+      <div class="endoso-badge">⚖️ Argumento jurídico clave</div>
+      <h3>El endoso de un pagaré individual nunca fue tan seguro</h3>
+      <p>En una serie de 24 pagarés, el endoso puede ser de uno solo — por ejemplo el pagaré N° 12. Con el Sello de Autenticidad, el endosatario puede verificar instantáneamente que ese pagaré específico pertenece a la operación original, con su monto exacto, su vencimiento y la identidad del deudor.<br><br>El Sello convierte cada pagaré en un <strong style="color:#fff">instrumento verificable de forma individual e independiente</strong>.</p>
+    </div>
+    <div class="endoso-verify">
+      <div class="endoso-verify-box">
+        <span class="evb-icon">📱</span>
+        <p>Escaneá el QR<br>y verificá en segundos</p>
+        <a href="https://legalpagare.com/verificar" class="evb-url">legalpagare.com/verificar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SAFETY -->
+<section class="safety" id="seguridad">
+=======
 <!-- ══════ SAFETY FIRST ══════ -->
 <section class="safety" id="seguridad" aria-label="Seguridad y privacidad">
+>>>>>>> deb61281e18dc130b890fe591285651b0c5927ff
   <div class="safety-inner">
     <div class="safety-header reveal">
       <div class="section-tag">🔐 Safety First</div>
       <h2 class="section-title">Tu seguridad, nuestra prioridad</h2>
-      <p class="section-sub">
-        Diseñado desde cero para operar con total discreción.
-        Sin contraseñas que se filtran, sin pantallas expuestas, sin riesgos.
-      </p>
+      <p class="section-sub">Diseñado desde cero para operar con total discreción. Sin contraseñas que se filtran, sin pantallas expuestas, sin riesgos.</p>
     </div>
     <div class="safety-grid">
       <div class="safety-card reveal reveal-delay-1">
         <span class="safety-icon">🔑</span>
         <h3>Sin contraseñas</h3>
         <p>Accedés con un código de un solo uso que llega a tu correo. No existe una contraseña que pueda filtrarse, robarse o adivinarse.</p>
-        <span class="safety-tag">2FA · Código de 6 dígitos · Expira en 15 min</span>
+        <span class="safety-tag">2FA · Código 6 dígitos · Expira en 15 min</span>
       </div>
       <div class="safety-card reveal reveal-delay-2">
         <span class="safety-icon">📧</span>
@@ -1698,14 +1908,14 @@ footer {
       <div class="safety-card reveal reveal-delay-3">
         <span class="safety-icon">🏦</span>
         <h3>Infraestructura de nivel empresarial</h3>
-        <p>Sin servidores propios vulnerables. La misma infraestructura que usan las empresas más grandes del mundo. Disponibilidad 99.9%.</p>
-        <span class="safety-tag">Sin servidores propios vulnerables</span>
+        <p>Google Workspace + GitHub Pages. Sin servidores propios vulnerables. La misma infraestructura que usan las empresas más grandes del mundo.</p>
+        <span class="safety-tag">Disponibilidad 99.9%</span>
       </div>
       <div class="safety-card reveal reveal-delay-4">
         <span class="safety-icon">🕵️</span>
-        <h3>Operaciones privadas y discretas</h3>
-        <p>Cada operación es tuya. El sistema no comparte, no expone y no registra información innecesaria. Lo que es tuyo, es tuyo.</p>
-        <span class="safety-tag">Privacidad total · Sesión de 8 horas</span>
+        <h3>Privacidad Extrema</h3>
+        <p>El modo Privacidad Extrema envía los documentos por correo en lugar de mostrarlos en pantalla. Lo que es tuyo, es tuyo — y nadie más lo ve.</p>
+        <span class="safety-tag">Zero Screen · Sesión 8 horas</span>
       </div>
     </div>
   </div>
@@ -1713,29 +1923,34 @@ footer {
 
 <div class="divider"></div>
 
+<<<<<<< HEAD
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+=======
 <!-- ══════ CÓMO FUNCIONA ══════ -->
 <section id="como-funciona" aria-label="Cómo funciona LegalPagaré">
+>>>>>>> deb61281e18dc130b890fe591285651b0c5927ff
   <div class="how">
     <div class="how-header reveal">
       <div class="section-tag">⚡ Simple y rápido</div>
       <h2 class="section-title">Tres pasos, cero complicaciones</h2>
-      <p class="section-sub">Desde que ingresás hasta que tenés los pagarés impresos, todo en minutos.</p>
+      <p class="section-sub">Desde que ingresás hasta que tenés los pagarés impresos con Sello, todo en minutos.</p>
     </div>
     <div class="steps">
       <div class="step reveal reveal-delay-1">
         <div class="step-num">1</div>
-        <h3>Recibís tu código</h3>
-        <p>Ingresás tu email, recibís un código de 6 dígitos en segundos. Sin contraseña, sin complicaciones.</p>
+        <h3>Ingresás con tu código</h3>
+        <p>Tu email, un código de 6 dígitos en segundos. Sin contraseña, sin registro previo.</p>
       </div>
       <div class="step reveal reveal-delay-2">
         <div class="step-num">2</div>
         <h3>Cargás la operación</h3>
-        <p>Completás los datos del deudor, el monto y los plazos. El sistema calcula automáticamente todos los vencimientos.</p>
+        <p>Datos del deudor, monto y plazos. El sistema calcula automáticamente todos los vencimientos y montos individuales.</p>
       </div>
       <div class="step reveal reveal-delay-3">
         <div class="step-num">3</div>
-        <h3>Imprimís y entregás</h3>
-        <p>Vista previa, PDF o impresión directa. 2 pagarés por hoja A4 apaisada, listos para firmar.</p>
+        <h3>Imprimís, entregás y sellás</h3>
+        <p>Al confirmar la entrega se genera el Sello SHA-256, el QR queda en cada pagaré y se envía email certificado a las partes.</p>
       </div>
     </div>
   </div>
@@ -1743,33 +1958,40 @@ footer {
 
 <div class="divider"></div>
 
-<!-- ══════ FEATURES ══════ -->
+<!-- FEATURES -->
 <section class="features-section">
   <div class="features-inner" style="padding:100px 5%;max-width:1100px;margin:0 auto">
     <div class="reveal">
       <div class="section-tag">✨ Features</div>
       <h2 class="section-title">Todo lo que necesitás para operar</h2>
-      <p class="section-sub" style="margin-bottom:48px">Desde cuotas simples hasta sistemas de amortización financiera completa.</p>
+      <p class="section-sub" style="margin-bottom:48px">Desde cuotas simples hasta sistemas de amortización financiera completa con autenticidad verificable.</p>
       <div class="features-list">
         <div class="feature-item">
-          <div class="feature-icon">÷</div>
+          <div class="feature-icon">🔐</div>
           <div class="feature-text">
-            <h4>Cuotas iguales y cuota fija</h4>
-            <p>El sistema calcula automáticamente el redondeo y distribuye el remanente en el primer pagaré. Sin errores de centavos.</p>
+            <h4>Sello de Autenticidad SHA-256 <span class="pro-badge">PRO</span></h4>
+            <p>Hash irrepetible, QR en cada pagaré, email certificado y verificación pública instantánea. El diferencial que ningún otro sistema ofrece.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">📊</div>
           <div class="feature-text">
-            <h4>Sistema financiero completo <span style="font-size:11px;background:var(--goldbg);color:var(--gold);padding:2px 7px;border-radius:5px;font-weight:600;font-family:var(--mono)">PRO</span></h4>
+            <h4>Sistema financiero completo <span class="pro-badge">PRO</span></h4>
             <p>Francés, Alemán y Directo. Con TNA o tasa mensual. Cada pagaré con su monto exacto de amortización e interés.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">📄</div>
           <div class="feature-text">
-            <h4>Reporte Excel y PDF <span style="font-size:11px;background:var(--goldbg);color:var(--gold);padding:2px 7px;border-radius:5px;font-weight:600;font-family:var(--mono)">PRO</span></h4>
+            <h4>Reporte Excel y PDF <span class="pro-badge">PRO</span></h4>
             <p>Tabla completa con número, monto y vencimiento de cada pagaré. Ideal para el legajo del cliente.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">÷</div>
+          <div class="feature-text">
+            <h4>Cuotas iguales y cuota fija</h4>
+            <p>El sistema calcula automáticamente el redondeo y distribuye el remanente en el primer pagaré. Sin errores de centavos.</p>
           </div>
         </div>
         <div class="feature-item">
@@ -1786,46 +2008,43 @@ footer {
         <div class="pg-deco-bar"></div>
         <div class="pg-content">
           <div class="pg-row1">
-            <div>
-              <div class="pg-label">Sellado</div>
-              <span class="pg-val-sm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            </div>
-            <div>
-              <div class="pg-label">N°</div>
-              <span class="pg-val-sm"><strong>1/34</strong></span>
-            </div>
-            <div>
-              <div class="pg-label">Vencimiento</div>
-              <span class="pg-val-sm"><strong>01/05/2026</strong></span>
-            </div>
-            <div>
-              <div class="pg-label">POR U$S</div>
-              <span class="pg-amount">-- 2.897 --</span>
-            </div>
+            <div><div class="pg-label">Sellado</div><span class="pg-val-sm">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div><div class="pg-label">N°</div><span class="pg-val-sm"><strong>1/10</strong></span></div>
+            <div><div class="pg-label">Vencimiento</div><span class="pg-val-sm"><strong>01/05/2026</strong></span></div>
+            <div><div class="pg-label">Lugar y Fecha</div><span class="pg-val-sm" style="min-width:100px">Tigre, 4 de abril 2026</span></div>
+            <div><div class="pg-label">POR U$S</div><span class="pg-amount">-- 500 --</span></div>
           </div>
-          <div class="pg-line" style="font-size:8px;color:#555">LUGAR Y FECHA &nbsp; Ciudad Autónoma de Buenos Aires , &nbsp; 3 &nbsp; de &nbsp; abril &nbsp; de 2026</div>
-          <div class="pg-line"><em style="font-size:10px">El día <u>viernes</u> 1 de mayo de 2026 pagaré sin protesto</em> <span style="font-size:7px;color:#777;float:right">(ART. 50 - D. LEY 5965/63)</span></div>
-          <div class="pg-line"><em style="font-size:10px">a Señor <u style="font-weight:700">________________________________</u> o a su orden la cantidad</em></div>
-          <div class="pg-line"><em style="font-size:10px">de dólares estadounidenses &nbsp;<strong>Dos mil ochocientos noventa y siete dólares con 00/100</strong></em></div>
-          <div class="pg-line" style="font-size:9px"><em>por igual valor recibido en <u>efectivo</u> &nbsp; a mi entera satisfacción</em></div>
-          <div class="pg-line" style="font-size:9px"><em>pagadero en <u>Buenos Aires</u></em></div>
+          <div class="pg-line" style="font-size:9px"><em>El día <u>viernes</u> 1 de mayo de 2026 pagaré sin protesto</em> <span style="font-size:7px;color:#777;float:right">(ART. 50 - D. LEY 5965/63)</span></div>
+          <div class="pg-line" style="font-size:9px"><em>a Señor <u>_______________________________</u> o a su orden la cantidad</em></div>
+          <div class="pg-line" style="font-size:9px"><em>de dólares estadounidenses &nbsp;<strong>Quinientos dólares con 00/100</strong></em></div>
+          <div class="pg-line" style="font-size:8px"><em>por igual valor recibido en <u>mercadería</u> a mi entera satisfacción</em></div>
+          <div class="pg-line" style="font-size:8px"><em>pagadero en <u>lavalle 419</u></em></div>
           <div class="pg-footer">
             <div class="pg-footer-col">
-              <div>NOMBRE <div class="pg-footer-line" style="font-size:8px;font-weight:600">Juan García</div></div>
-              <div style="margin-top:4px">CALLE <div class="pg-footer-line"></div></div>
-              <div style="margin-top:4px;display:flex;gap:4px">
-                <div style="flex:2">LOC. <div class="pg-footer-line"></div></div>
-                <div style="flex:1">TEL. <div class="pg-footer-line"></div></div>
+              <div><span style="font-weight:700;font-size:6.5px;font-family:Arial">NOMBRE Y APELLIDO</span><div class="pg-footer-line" style="font-size:8px;font-weight:600">Pero Induni</div></div>
+              <div style="margin-top:3px"><span style="font-size:6.5px;font-family:Arial;font-weight:700">CALLE</span><div class="pg-footer-line" style="font-size:7.5px">los carolinos 4390</div></div>
+              <div style="margin-top:3px;display:flex;gap:4px">
+                <div style="flex:2"><span style="font-size:6.5px;font-family:Arial;font-weight:700">LOC.</span><div class="pg-footer-line" style="font-size:7px">Córdoba - Villa Allende</div></div>
+                <div style="flex:1"><span style="font-size:6.5px;font-family:Arial;font-weight:700">TEL.</span><div class="pg-footer-line"></div></div>
               </div>
             </div>
-            <div class="pg-footer-col" style="flex:.8;border-left:1px solid #c5dfc5;padding-left:8px">
-              <div style="font-size:7px;color:#555;font-weight:700;text-transform:uppercase">Firma y aclaración</div>
-              <div class="pg-footer-line" style="margin-top:6px"></div>
-              <div class="pg-footer-line" style="margin-top:8px"></div>
+            <div style="flex:.7;border-left:1px solid #c5dfc5;padding-left:8px;display:flex;gap:5px;align-items:stretch">
+              <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+                <div style="font-size:7px;color:#555;font-weight:700;text-transform:uppercase;font-family:Arial">Firma y aclaración</div>
+                <div class="pg-footer-line" style="margin-top:6px;flex:1"></div>
+                <div class="pg-footer-line" style="margin-top:6px"></div>
+              </div>
+              <div style="width:44px;height:44px;flex-shrink:0">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&margin=2&data=https%3A%2F%2Flegalpagare.com%2Fverificar%3Fh%3Dd4c6b0ba12e043aaf0928e35541bba205adc2f50b6b7ad67debb18edc7ce145d" width="44" height="44" style="display:block;border:1px solid #c5dfc5;border-radius:3px" alt="QR"/>
+              </div>
             </div>
           </div>
         </div>
         <div class="pg-deco-bar"></div>
+        <div style="font-size:5.5px;font-family:monospace;color:#1a2744;background:#f0f4f0;border-top:1px dashed #aaa;padding:2px 8px;display:flex;justify-content:space-between">
+          <span>🔐 Sello LegalPagaré · d4c6b0ba12e043aaf0928e35541bba205adc2f50b6b7ad67debb18edc7ce145d</span>
+          <span>legalpagare.com/verificar</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1833,41 +2052,27 @@ footer {
 
 <div class="divider"></div>
 
-<!-- ══════ TARGET ══════ -->
+<!-- TARGET -->
 <section class="target-section">
   <div class="target-inner">
     <div class="target-header reveal">
       <div class="section-tag">🎯 Para quién</div>
       <h2 class="section-title">Ideal para profesionales del derecho y los negocios</h2>
-      <p class="section-sub">Cualquier operación que requiera documentar una deuda en cuotas.</p>
+      <p class="section-sub">Cualquier operación que requiera documentar una deuda en cuotas con validez verificable.</p>
     </div>
     <div class="target-grid">
-      <div class="target-card reveal reveal-delay-1">
-        <span class="target-emoji">⚖️</span>
-        <h4>Escribanías</h4>
-        <p>Instrumentos públicos y privados con validez legal total</p>
-      </div>
-      <div class="target-card reveal reveal-delay-2">
-        <span class="target-emoji">🏛️</span>
-        <h4>Estudios Jurídicos</h4>
-        <p>Series completas para operaciones de crédito y garantías</p>
-      </div>
-      <div class="target-card reveal reveal-delay-3">
-        <span class="target-emoji">🏠</span>
-        <h4>Inmobiliarias</h4>
-        <p>Financiamiento de lotes, propiedades y emprendimientos</p>
-      </div>
-      <div class="target-card reveal reveal-delay-4">
-        <span class="target-emoji">🚗</span>
-        <h4>Concesionarias</h4>
-        <p>Planes de pago en cuotas para venta de vehículos</p>
-      </div>
+      <div class="target-card reveal reveal-delay-1"><span class="target-emoji">⚖️</span><h4>Escribanías</h4><p>Instrumentos privados con Sello de Autenticidad y fecha cierta certificada</p></div>
+      <div class="target-card reveal reveal-delay-2"><span class="target-emoji">🏛️</span><h4>Estudios Jurídicos</h4><p>Series completas para operaciones de crédito, garantías y endosos</p></div>
+      <div class="target-card reveal reveal-delay-3"><span class="target-emoji">🏠</span><h4>Inmobiliarias</h4><p>Financiamiento de lotes y propiedades con protección anti-adulteración</p></div>
+      <div class="target-card reveal reveal-delay-4"><span class="target-emoji">🚗</span><h4>Concesionarias</h4><p>Planes de pago en cuotas con cada pagaré verificable individualmente</p></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- PRECIOS -->
+<section class="pricing-section" id="precios">
 <!-- ══════ PRECIOS ══════ -->
 <section class="pricing-section" id="precios" aria-label="Planes y precios">
   <div class="pricing-inner">
@@ -1875,26 +2080,15 @@ footer {
       <div class="section-tag">💳 Precios</div>
       <h2 class="section-title">Simple y transparente</h2>
     </div>
-
     <div class="pricing-toggle reveal">
       <span class="toggle-label active" id="lbl-monthly" onclick="setToggle(false)">Mensual</span>
-      <div class="toggle-switch" id="price-toggle" onclick="togglePricing()">
-        <div class="toggle-knob"></div>
-      </div>
-      <span class="toggle-label" id="lbl-annual" onclick="setToggle(true)">
-        Anual &nbsp;<span class="annual-badge">3 meses gratis</span>
-      </span>
+      <div class="toggle-switch" id="price-toggle" onclick="togglePricing()"><div class="toggle-knob"></div></div>
+      <span class="toggle-label" id="lbl-annual" onclick="setToggle(true)">Anual &nbsp;<span class="annual-badge">3 meses gratis</span></span>
     </div>
-
     <div class="pricing-cards">
-      <!-- STD -->
       <div class="pricing-card reveal reveal-delay-1">
         <div class="plan-name">STD</div>
-        <div class="plan-price">
-          <span class="plan-currency">$</span>
-          <span class="plan-amount" id="std-price">20.000</span>
-          <span class="plan-period">/mes</span>
-        </div>
+        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-amount" id="std-price">20.000</span><span class="plan-period">/mes</span></div>
         <div class="plan-annual-note" id="std-annual-note"></div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
@@ -1903,38 +2097,33 @@ footer {
           <li><span class="check">✓</span> 2FA sin contraseña</li>
           <li><span class="check">✓</span> Documentos a tu correo</li>
           <li><span class="check">✓</span> Historial 6 meses</li>
+          <li class="disabled"><span class="cross">✕</span> Sello de Autenticidad SHA-256</li>
+          <li class="disabled"><span class="cross">✕</span> QR verificable en cada pagaré</li>
           <li class="disabled"><span class="cross">✕</span> Sistema financiero (Francés/Alemán)</li>
           <li class="disabled"><span class="cross">✕</span> Reporte Excel y PDF</li>
-          <li class="disabled"><span class="cross">✕</span> Backup completo</li>
         </ul>
         <a href="https://app.legalpagare.com" class="btn-plan btn-plan-std">Empezar con STD</a>
       </div>
-
-      <!-- PRO -->
       <div class="pricing-card popular reveal reveal-delay-2">
         <div class="popular-tag">⭐ Más elegido</div>
         <div class="plan-name">PRO</div>
-        <div class="plan-price">
-          <span class="plan-currency">$</span>
-          <span class="plan-amount" id="pro-price">35.000</span>
-          <span class="plan-period">/mes</span>
-        </div>
+        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-amount" id="pro-price">35.000</span><span class="plan-period">/mes</span></div>
         <div class="plan-annual-note" id="pro-annual-note"></div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li><span class="check">✓</span> Todo lo de STD</li>
           <li><span class="check">✓</span> <strong>Operaciones ilimitadas</strong></li>
+          <li><span class="check">✓</span> <strong>🔐 Sello de Autenticidad SHA-256</strong></li>
+          <li><span class="check">✓</span> <strong>📱 QR verificable en cada pagaré</strong></li>
+          <li><span class="check">✓</span> <strong>📅 Fecha cierta irrefutable</strong></li>
+          <li><span class="check">✓</span> <strong>💰 Monto por pagaré verificable</strong></li>
           <li><span class="check">✓</span> <strong>Sistema financiero completo</strong></li>
           <li><span class="check">✓</span> <strong>Reporte Excel y PDF</strong></li>
-          <li><span class="check">✓</span> <strong>Backup completo de operaciones</strong></li>
-          <li><span class="check">✓</span> Historial ilimitado</li>
-          <li><span class="check">✓</span> Soporte email prioritario</li>
-          <li><span class="check">✓</span> 2FA sin contraseña</li>
+          <li><span class="check">✓</span> Historial ilimitado · Soporte prioritario</li>
         </ul>
         <a href="https://app.legalpagare.com" class="btn-plan btn-plan-pro">Empezar con PRO →</a>
       </div>
     </div>
-
     <p class="reveal" style="text-align:center;margin-top:28px;font-size:13px;color:var(--text3);font-family:var(--mono)">
       Todos los planes incluyen <strong style="color:var(--green)">5 créditos gratuitos</strong> para probar sin compromiso · Sin tarjeta de crédito
     </p>
@@ -1943,99 +2132,74 @@ footer {
 
 <div class="divider"></div>
 
-<!-- ══════ CTA FINAL ══════ -->
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner reveal">
     <div class="cta-glow"></div>
     <h2>Empezá hoy.<br>Los primeros 5 son gratis.</h2>
     <p>Sin contraseña, sin tarjeta de crédito, sin complicaciones.<br>Solo tu correo y tu código.</p>
-    <a href="https://app.legalpagare.com" class="btn-primary" style="font-size:17px;padding:17px 40px;margin:0 auto;display:inline-flex">
-      🚀 Crear mi cuenta gratis
-    </a>
-    <p class="cta-note">
-      <strong>5 créditos gratuitos</strong> · Acceso inmediato · D. Ley 5965/63
-    </p>
+    <a href="https://app.legalpagare.com" class="btn-primary" style="font-size:17px;padding:17px 40px;margin:0 auto;display:inline-flex">🚀 Crear mi cuenta gratis</a>
+    <p class="cta-note"><strong>5 créditos gratuitos</strong> · Acceso inmediato · D. Ley 5965/63</p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════ CONTACTO ══════ -->
+<!-- CONTACTO -->
 <section style="padding:60px 5%;text-align:center;background:var(--bg2)">
   <p style="font-size:14px;color:var(--text3);font-family:var(--mono);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px">¿Tenés consultas?</p>
-  <a href="mailto:info@tasks-on.com"
-     style="font-family:var(--display);font-size:28px;font-weight:700;color:var(--navy);text-decoration:none;border-bottom:2px solid var(--green);padding-bottom:4px;transition:opacity .2s"
-     onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
-    info@tasks-on.com
-  </a>
+  <a href="mailto:info@tasks-on.com" style="font-family:var(--display);font-size:28px;font-weight:700;color:var(--navy);text-decoration:none;border-bottom:2px solid var(--green);padding-bottom:4px" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">info@tasks-on.com</a>
   <p style="font-size:13px;color:var(--text3);margin-top:14px">Respondemos en menos de 24 horas · Lunes a viernes</p>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════ FOOTER ══════ -->
+<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">
     <div class="footer-logo-icon">📜</div>
     <span class="footer-logo-text">Legal<span>Pagaré</span></span>
   </a>
   <ul class="footer-links">
+    <li><a href="#sello">Sello de Autenticidad</a></li>
     <li><a href="#seguridad">Seguridad</a></li>
     <li><a href="#precios">Precios</a></li>
-    <li><a href="mailto:info@tasks-on.com">Contacto</a></li>
+    <li><a href="https://legalpagare.com/verificar">Verificar</a></li>
     <li><a href="mailto:info@tasks-on.com" style="color:var(--navy);font-weight:600">✉ info@tasks-on.com</a></li>
   </ul>
   <span class="footer-copy">© 2026 LegalPagaré · D. Ley 5965/63</span>
 </footer>
 
 <script>
-// ── Pricing toggle ───────────────────────────────────────
 let isAnnual = false;
-
-function togglePricing() { setToggle(!isAnnual); }
-
-function setToggle(annual) {
+function togglePricing(){ setToggle(!isAnnual); }
+function setToggle(annual){
   isAnnual = annual;
-  const tog = document.getElementById('price-toggle');
-  const lblM = document.getElementById('lbl-monthly');
-  const lblA = document.getElementById('lbl-annual');
-
-  tog.classList.toggle('annual', annual);
-  lblM.classList.toggle('active', !annual);
-  lblA.classList.toggle('active', annual);
-
-  if (annual) {
-    document.getElementById('std-price').textContent = '15.000';
-    document.getElementById('pro-price').textContent = '27.500';
-    document.getElementById('std-annual-note').textContent = '→ $180.000/año · 3 meses gratis';
-    document.getElementById('pro-annual-note').textContent = '→ $330.000/año · 3 meses gratis';
+  document.getElementById('price-toggle').classList.toggle('annual', annual);
+  document.getElementById('lbl-monthly').classList.toggle('active', !annual);
+  document.getElementById('lbl-annual').classList.toggle('active', annual);
+  if(annual){
+    document.getElementById('std-price').textContent='15.000';
+    document.getElementById('pro-price').textContent='27.500';
+    document.getElementById('std-annual-note').textContent='→ $180.000/año · 3 meses gratis';
+    document.getElementById('pro-annual-note').textContent='→ $330.000/año · 3 meses gratis';
   } else {
-    document.getElementById('std-price').textContent = '20.000';
-    document.getElementById('pro-price').textContent = '35.000';
-    document.getElementById('std-annual-note').textContent = '';
-    document.getElementById('pro-annual-note').textContent = '';
+    document.getElementById('std-price').textContent='20.000';
+    document.getElementById('pro-price').textContent='35.000';
+    document.getElementById('std-annual-note').textContent='';
+    document.getElementById('pro-annual-note').textContent='';
   }
 }
-
-// ── Scroll reveal ────────────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// ── Smooth nav active ────────────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
     const href = a.getAttribute('href');
-    if (href === '#') return;
+    if(href==='#') return;
     e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href)?.scrollIntoView({behavior:'smooth'});
   });
 });
 </script>
