@@ -89,8 +89,8 @@ body::before {
    NAV
 ══════════════════════════════════════ */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: sticky;
+  top: 0;
   z-index: 100;
   padding: 0 5%;
   height: 68px;
@@ -190,11 +190,11 @@ nav {
    HERO
 ══════════════════════════════════════ */
 .hero {
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 5% 80px;
+  padding: 60px 5% 80px;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -1486,6 +1486,196 @@ footer {
 .reveal-delay-2 { transition-delay: .2s; }
 .reveal-delay-3 { transition-delay: .3s; }
 .reveal-delay-4 { transition-delay: .4s; }
+
+/* ══════════════════════════════════════
+   PROMO BANNER
+══════════════════════════════════════ */
+.promo-banner {
+  background: linear-gradient(135deg, #1a5c1a 0%, #2e7d32 50%, #1a5c1a 100%);
+  color: #fff;
+  text-align: center;
+  padding: 12px 5%;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--body);
+  letter-spacing: .2px;
+  position: relative;
+  z-index: 101;
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.promo-banner strong { color: #ffd700; }
+.promo-banner a { color: #ffd700; text-decoration: underline; margin-left: 8px; }
+
+.promo-pricing {
+  background: linear-gradient(135deg, rgba(26,107,58,.12), rgba(34,197,94,.08));
+  border: 2px solid rgba(26,107,58,.3);
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-align: center;
+  margin-bottom: 28px;
+  animation: fadeUp .6s ease both;
+}
+.promo-pricing .promo-title {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+.promo-pricing .promo-sub {
+  font-size: 13px;
+  color: var(--text2);
+  font-weight: 400;
+}
+.promo-pricing .promo-date {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════════════
+   HAMBURGER MENU
+══════════════════════════════════════ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  background: none;
+  z-index: 102;
+}
+.hamburger span {
+  width: 22px; height: 2px;
+  background: var(--navy);
+  border-radius: 2px;
+  transition: all .3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* ══════════════════════════════════════
+   FULL RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* Nav */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(232,234,237,.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    z-index: 101;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 18px; }
+  .nav-cta { display: none; }
+  .nav-cta.in-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 102;
+  }
+  .hamburger { display: flex; }
+
+  /* Hero */
+  .hero { padding: 100px 5% 50px !important; }
+  .hero > div {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+    text-align: center !important;
+  }
+  .hero-content { text-align: center !important; }
+  .hero-actions { justify-content: center !important; }
+  .hero-free-note { text-align: center !important; }
+  .hero h1 { font-size: clamp(28px, 7vw, 42px) !important; }
+  .hero-sub { font-size: 15px !important; text-align: center !important; margin-left: auto !important; }
+
+  /* Pagaré hero */
+  .ph { width: 100% !important; max-width: 380px !important; }
+  .pagare-float { width: 100%; display: flex; justify-content: center; }
+
+  /* Sections */
+  section { padding: 60px 5% !important; }
+  .section-title { font-size: clamp(24px, 6vw, 36px) !important; }
+  .section-sub { font-size: 15px !important; }
+
+  /* Sello grid */
+  .sello-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* Endoso */
+  .endoso-banner { grid-template-columns: 1fr !important; padding: 28px 20px !important; gap: 24px !important; }
+  .endoso-banner h3 { font-size: 22px !important; }
+  .endoso-banner p { font-size: 13px !important; }
+
+  /* Features */
+  .features-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .pagare-preview { display: none; }
+
+  /* Steps */
+  .steps { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .steps::before { display: none; }
+
+  /* Target */
+  .target-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .target-card { padding: 20px 14px !important; }
+  .target-emoji { font-size: 26px !important; }
+  .target-card h4 { font-size: 13px !important; }
+  .target-card p { font-size: 11px !important; }
+
+  /* Pricing */
+  .pricing-cards { grid-template-columns: 1fr !important; }
+  .pricing-card { padding: 28px 22px !important; }
+  .plan-amount { font-size: 40px !important; }
+  .pricing-toggle { flex-wrap: wrap; gap: 10px; }
+
+  /* CTA */
+  .cta-section { padding: 80px 5% !important; }
+  .cta-section h2 { font-size: clamp(24px, 5vw, 36px) !important; }
+
+  /* Footer */
+  footer { flex-direction: column; text-align: center; gap: 12px; padding: 24px 5%; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  /* Promo banner */
+  .promo-banner { font-size: 12px; padding: 10px 5%; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 26px !important; }
+  .hero-sub { font-size: 14px !important; }
+  .hero-badge { font-size: 11px; padding: 5px 12px; }
+  .btn-primary { font-size: 14px; padding: 13px 24px; }
+  .btn-secondary { font-size: 14px; padding: 13px 24px; }
+  .target-grid { grid-template-columns: 1fr !important; }
+  .safety-card { padding: 22px !important; }
+  .safety-card h3 { font-size: 17px !important; }
+  .step-num { width: 60px; height: 60px; font-size: 22px; }
+  .seal-badge { font-size: 9px; padding: 5px 10px; }
+  .sello-visual { padding: 20px !important; }
+  .sello-step { padding: 10px 12px; }
+  .sf-item { gap: 12px; }
+  .sf-icon { width: 40px; height: 40px; font-size: 18px; }
+  .sf-text h4 { font-size: 14px; }
+  .sf-text p { font-size: 13px; }
+  .promo-pricing .promo-title { font-size: 17px; }
+}
 </style>
 <style>
 /* ══ SELLO DE AUTENTICIDAD ══ */
@@ -1568,21 +1758,27 @@ footer {
 </head>
 <body>
 
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  🎉 <strong>¡Gratis con registro hasta el 31/12/2026!</strong> — Usá todas las funciones sin cargo hasta fin de año. <a href="https://app.legalpagare.com">Registrate ahora →</a>
+</div>
+
 <nav>
   <a href="#" class="nav-logo">
     <div class="nav-logo-icon">📜</div>
     <span class="nav-logo-text">Legal<span>Pagaré</span></span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#sello">Sello de Autenticidad</a></li>
-    <li><a href="#seguridad">Seguridad</a></li>
-    <li><a href="#como-funciona">Cómo funciona</a></li>
-    <li><a href="#precios">Precios</a></li>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="#sello" onclick="closeMenu()">Sello de Autenticidad</a></li>
+    <li><a href="#seguridad" onclick="closeMenu()">Seguridad</a></li>
+    <li><a href="#como-funciona" onclick="closeMenu()">Cómo funciona</a></li>
+    <li><a href="#precios" onclick="closeMenu()">Precios</a></li>
   </ul>
   <div class="nav-cta">
     <a href="https://app.legalpagare.com" class="btn-nav-login">Ingresar</a>
     <a href="https://app.legalpagare.com" class="btn-nav-start">Probá gratis</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -1602,7 +1798,7 @@ footer {
         <a href="https://app.legalpagare.com" class="btn-primary">🚀 Empezá gratis</a>
         <a href="#sello" class="btn-secondary">Ver el Sello →</a>
       </div>
-      <p class="hero-free-note" style="text-align:left"><strong>5 créditos gratuitos</strong> · Sin tarjeta · Sin contraseña</p>
+      <p class="hero-free-note" style="text-align:left"><strong>✨ Gratis hasta el 31/12/2026</strong> · Registro sin tarjeta · Sin contraseña</p>
     </div>
     <div style="display:flex;align-items:center;justify-content:center">
       <div>
@@ -1960,6 +2156,14 @@ footer {
       <div class="section-tag">💳 Precios</div>
       <h2 class="section-title">Simple y transparente</h2>
     </div>
+    <div class="promo-pricing reveal">
+      <div class="promo-title">🎉 ¡Gratis con registro hasta fin de año!</div>
+      <div class="promo-sub">Todas las funciones habilitadas sin cargo hasta el</div>
+      <div class="promo-date">31 de diciembre de 2026</div>
+    </div>
+    <div style="text-align:center;margin-bottom:12px;font-size:13px;color:var(--text3);font-family:var(--mono)" class="reveal">
+      Después del período gratuito, las tarifas serán:
+    </div>
     <div class="pricing-toggle reveal">
       <span class="toggle-label active" id="lbl-monthly" onclick="setToggle(false)">Mensual</span>
       <div class="toggle-switch" id="price-toggle" onclick="togglePricing()"><div class="toggle-knob"></div></div>
@@ -2005,7 +2209,7 @@ footer {
       </div>
     </div>
     <p class="reveal" style="text-align:center;margin-top:28px;font-size:13px;color:var(--text3);font-family:var(--mono)">
-      Todos los planes incluyen <strong style="color:var(--green)">5 créditos gratuitos</strong> para probar sin compromiso · Sin tarjeta de crédito
+      🎉 <strong style="color:var(--green)">Gratis con registro hasta el 31/12/2026</strong> · Después se aplican las tarifas indicadas · Sin tarjeta de crédito
     </p>
   </div>
 </section>
@@ -2016,10 +2220,10 @@ footer {
 <section class="cta-section">
   <div class="cta-inner reveal">
     <div class="cta-glow"></div>
-    <h2>Empezá hoy.<br>Los primeros 5 son gratis.</h2>
-    <p>Sin contraseña, sin tarjeta de crédito, sin complicaciones.<br>Solo tu correo y tu código.</p>
-    <a href="https://app.legalpagare.com" class="btn-primary" style="font-size:17px;padding:17px 40px;margin:0 auto;display:inline-flex">🚀 Crear mi cuenta gratis</a>
-    <p class="cta-note"><strong>5 créditos gratuitos</strong> · Acceso inmediato · D. Ley 5965/63</p>
+    <h2>Empezá hoy.<br>Gratis hasta fin de 2026.</h2>
+    <p>Sin contraseña, sin tarjeta de crédito, sin complicaciones.<br>Solo tu correo y tu código. Todas las funciones habilitadas.</p>
+    <a href="https://app.legalpagare.com" class="btn-primary" style="font-size:17px;padding:17px 40px;margin:0 auto;display:inline-flex">🚀 Registrarme gratis</a>
+    <p class="cta-note"><strong>Gratis hasta 31/12/2026</strong> · Acceso inmediato · D. Ley 5965/63</p>
   </div>
 </section>
 
@@ -2082,6 +2286,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     document.querySelector(href)?.scrollIntoView({behavior:'smooth'});
   });
 });
+
+function toggleMenu() {
+  var menu = document.getElementById('nav-menu');
+  var btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('nav-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
 </script>
 </body>
 </html>
